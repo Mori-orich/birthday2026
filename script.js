@@ -573,10 +573,10 @@ I wish you happiness, success, amazing memories and many reasons to smile.
 
 Thank you for all the time, jokes and unforgettable moments.
 
-Have the best birthday ever ❤️
+Have the best birthday ever!
 
-With love,
-Bubu ❤️`;
+I LOVE YOU SO MUCH <3333333
+ur Bubu ❤️`;
 
 
 
