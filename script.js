@@ -8,8 +8,7 @@ let letterStarted = false;
 const heart = document.getElementById("heart");
 
 
-function moveHeart(){
-
+function randomHeartPosition(){
 
     let x = Math.random() * 500 - 250;
     let y = Math.random() * 350 - 175;
@@ -31,6 +30,7 @@ heart.onclick = function(){
     createHearts();
 
 
+
     if(heartClicks < 3){
 
 
@@ -39,7 +39,7 @@ heart.onclick = function(){
         `You found me ${heartClicks}/3 ❤️`;
 
 
-        moveHeart();
+        randomHeartPosition();
 
 
     } else {
@@ -56,7 +56,7 @@ heart.onclick = function(){
             next("codeScene");
 
 
-        },700);
+        },800);
 
 
     }
@@ -71,8 +71,7 @@ heart.onclick = function(){
 
 
 
-
-// 🌸 SCENE CHANGE
+// 🌸 SCENE SWITCH
 
 
 function next(id){
@@ -101,6 +100,7 @@ function next(id){
     },250);
 
 
+
 }
 
 
@@ -110,8 +110,7 @@ function next(id){
 
 
 
-
-// 🔐 CODE
+// 🔐 SECRET CODE
 
 
 function checkCode(){
@@ -142,7 +141,7 @@ function checkCode(){
         .getElementById("error")
         .innerHTML =
 
-        "Wrong code 💭 Try again";
+        "Wrong code 💭";
 
 
     }
@@ -157,8 +156,7 @@ function checkCode(){
 
 
 
-
-// 🧩 QUIZ
+// 🕵️ QUIZ
 
 
 function startQuiz(){
@@ -182,7 +180,7 @@ function answer(correct){
         if(currentQuestion === 1){
 
 
-            currentQuestion++;
+            currentQuestion = 2;
 
 
             next("question2");
@@ -190,10 +188,11 @@ function answer(correct){
 
         }
 
+
         else if(currentQuestion === 2){
 
 
-            currentQuestion++;
+            currentQuestion = 3;
 
 
             next("question3");
@@ -201,13 +200,14 @@ function answer(correct){
 
         }
 
+
         else {
 
 
-            next("successScene");
-
-
             createHearts();
+
+
+            next("successScene");
 
 
         }
@@ -216,7 +216,8 @@ function answer(correct){
     } else {
 
 
-        alert("Hmm... not this one 😄 Try again!");
+        alert("Hmm... try again 😄");
+
 
     }
 
@@ -240,7 +241,8 @@ function createHearts(){
     for(let i=0;i<20;i++){
 
 
-        let h = document.createElement("div");
+        let h =
+        document.createElement("div");
 
 
         h.className =
@@ -256,10 +258,11 @@ function createHearts(){
 
 
         h.style.fontSize =
-        (20+Math.random()*30)+"px";
+        (20+Math.random()*35)+"px";
 
 
         h.style.animationDuration =
+
         (3+Math.random()*3)+"s";
 
 
@@ -300,7 +303,6 @@ function blowCake(){
     document.querySelector(".cake");
 
 
-
     cake.style.transition =
     "1.5s";
 
@@ -327,7 +329,6 @@ function blowCake(){
         startLetter();
 
 
-
     },1500);
 
 
@@ -341,8 +342,7 @@ function blowCake(){
 
 
 
-
-// 💌 LETTER
+// 💌 FINAL LETTER
 
 
 function startLetter(){
@@ -355,25 +355,25 @@ function startLetter(){
 
 
 
-    let text = `Dear Georgiii ❤️
+    let text = `Dear George ❤️
 
 
 Happy Birthday!
 
 
-I created this little adventure because I wanted to make your day more special.
+I made this little adventure because I wanted to create something special for you.
 
 
-I wanted you to smile, play a little game and feel how important you are.
+Not just a simple birthday message, but a small journey with surprises, memories and smiles.
 
 
-Even though we are far away, I hope this small surprise reminds you that someone is thinking about you.
+Even if we are far away, I hope you feel how important and appreciated you are.
 
 
-I wish you happiness, amazing moments, good luck and dreams that come true.
+I wish you happiness, amazing moments, success in everything you do and many reasons to smile.
 
 
-Thank you for being you.
+Thank you for being yourself.
 
 
 Have the best birthday ever 🎂
@@ -383,15 +383,15 @@ With love ❤️`;
 
 
 
-    let i = 0;
-
-
     let box =
     document.getElementById("letterText");
 
 
+    let i=0;
 
-    function typing(){
+
+
+    function type(){
 
 
         if(i < text.length){
@@ -403,7 +403,7 @@ With love ❤️`;
             i++;
 
 
-            setTimeout(typing,35);
+            setTimeout(type,35);
 
 
         }
@@ -412,7 +412,7 @@ With love ❤️`;
     }
 
 
-    typing();
+    type();
 
 
 }
