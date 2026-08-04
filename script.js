@@ -14,68 +14,57 @@ let letterStarted = false;
 
 
 
-
 // ❤️ LOVE VESSEL
 
 
 document.getElementById("heartButton").onclick = function(){
 
 
-    if(love < 100){
+if(love < 100){
 
 
-        love += 10;
+love += 10;
 
 
-        document.getElementById("loveFill").style.height =
-        love + "%";
+document.getElementById("loveFill").style.height =
+love + "%";
 
 
-        document.getElementById("lovePercent").innerHTML =
-        love + "%";
+document.getElementById("lovePercent").innerHTML =
+love + "%";
 
 
-        document.getElementById("loveText").innerHTML =
-        "Love is growing ❤️";
+document.getElementById("loveText").innerHTML =
+"Love is growing ❤️";
 
 
-        createHearts();
-
-
-        this.style.transform =
-        "scale(1.25)";
-
-
-        setTimeout(()=>{
-
-            this.style.transform="scale(1)";
-
-        },200);
+createHearts();
 
 
 
-    }
+}
 
 
 
-    if(love === 100){
+if(love === 100){
 
 
-        document.getElementById("loveText").innerHTML =
-
-        "Love vessel is full! 💕";
-
-
-        setTimeout(()=>{
+document.getElementById("loveText").innerHTML =
+"Love vessel is full! 💕";
 
 
-            next("hiddenHeartScene");
+
+setTimeout(()=>{
 
 
-        },1200);
+next("catLoveScene");
 
 
-    }
+},1000);
+
+
+}
+
 
 
 };
@@ -94,36 +83,35 @@ document.getElementById("heartButton").onclick = function(){
 function next(id){
 
 
-    document.querySelectorAll(".scene")
-    .forEach(scene=>{
+document.querySelectorAll(".scene")
+.forEach(scene=>{
 
 
-        scene.classList.remove("active");
+scene.classList.remove("active");
 
 
-    });
-
-
-
-    setTimeout(()=>{
-
-
-        document.getElementById(id)
-        .classList.add("active");
+});
 
 
 
-        if(id==="minionScene"){
+setTimeout(()=>{
 
 
-            startBananas();
-
-
-        }
+document.getElementById(id)
+.classList.add("active");
 
 
 
-    },300);
+if(id==="minionScene"){
+
+startBananas();
+
+}
+
+
+
+},300);
+
 
 
 }
@@ -136,45 +124,47 @@ function next(id){
 
 
 
-// FLOAT HEARTS
+// HEART EFFECTS
 
 
 function createHearts(){
 
 
-    for(let i=0;i<10;i++){
+for(let i=0;i<12;i++){
 
 
-        let h=document.createElement("div");
+let h=document.createElement("div");
 
 
-        h.className="floating-heart";
+h.className="floating-heart";
 
 
-        h.innerHTML="❤️";
+h.innerHTML="❤️";
 
 
-        h.style.left=Math.random()*100+"vw";
+h.style.left=Math.random()*100+"vw";
 
 
-        h.style.fontSize =
-        20+Math.random()*30+"px";
-
-
-        document.body.appendChild(h);
+h.style.fontSize =
+20+Math.random()*30+"px";
 
 
 
-        setTimeout(()=>{
+document.body.appendChild(h);
 
 
-            h.remove();
+
+setTimeout(()=>{
 
 
-        },4000);
+h.remove();
 
 
-    }
+},4000);
+
+
+
+}
 
 
 }
@@ -191,28 +181,32 @@ function createHearts(){
 
 
 document.querySelectorAll(".hiddenHeart")
-.forEach(item=>{
+.forEach(heart=>{
 
 
-item.onclick=function(){
+heart.onclick=function(){
 
 
-if(this.dataset.done) return;
+if(this.dataset.done)return;
 
 
 this.dataset.done=true;
 
 
-this.style.opacity=".2";
+this.style.opacity=".3";
 
 
 heartsFound++;
 
 
-document.getElementById("hiddenText")
-.innerHTML =
+
+document.getElementById("hiddenText").innerHTML =
 
 `Hearts found: ${heartsFound}/5`;
+
+
+
+createHearts();
 
 
 
@@ -252,14 +246,15 @@ function checkCode(){
 
 let code =
 document.getElementById("codeInput")
-.value.trim();
+.value
+.trim();
 
 
 
 if(code==="0908"){
 
 
-next("quizIntro");
+next("duduReward");
 
 
 }
@@ -267,11 +262,12 @@ next("quizIntro");
 else {
 
 
-document.getElementById("error")
-.innerHTML="Wrong code 💭";
+document.getElementById("error").innerHTML =
+"Wrong code 💭";
 
 
 }
+
 
 
 }
@@ -289,9 +285,12 @@ document.getElementById("error")
 
 function startQuiz(){
 
+
 next("question1");
 
+
 }
+
 
 
 
@@ -303,6 +302,7 @@ if(!correct){
 
 
 alert("Try again 😄");
+
 
 return;
 
@@ -316,6 +316,7 @@ if(currentQuestion===1){
 
 currentQuestion=2;
 
+
 next("question2");
 
 
@@ -325,6 +326,7 @@ else if(currentQuestion===2){
 
 
 currentQuestion=3;
+
 
 next("question3");
 
@@ -338,6 +340,7 @@ next("catScene");
 
 
 }
+
 
 
 }
@@ -359,6 +362,7 @@ function findPaw(paw){
 if(paw.dataset.done)return;
 
 
+
 paw.dataset.done=true;
 
 
@@ -369,8 +373,7 @@ pawsFound++;
 
 
 
-document.getElementById("pawText")
-.innerHTML =
+document.getElementById("pawText").innerHTML =
 
 `Paws found: ${pawsFound}/3`;
 
@@ -383,21 +386,21 @@ createHearts();
 if(pawsFound===3){
 
 
+
 setTimeout(()=>{
 
 
-next("catMessageScene");
+next("catReward");
 
 
 },1000);
 
 
-}
-
 
 }
 
 
+}
 
 
 
@@ -405,25 +408,25 @@ next("catMessageScene");
 
 
 
-// 🍌 BANANAS
+
+
+// 🍌 BANANA GAME
 
 
 function startBananas(){
 
 
-let box =
-document.getElementById("bananaGame");
+let box=document.getElementById("bananaGame");
 
 
 
-let timer =
-setInterval(()=>{
+let interval=setInterval(()=>{
 
 
 if(bananasCaught>=5){
 
 
-clearInterval(timer);
+clearInterval(interval);
 
 return;
 
@@ -431,8 +434,7 @@ return;
 
 
 
-let banana =
-document.createElement("div");
+let banana=document.createElement("div");
 
 
 banana.className="banana";
@@ -456,8 +458,7 @@ this.remove();
 
 
 
-document.getElementById("bananaText")
-.innerHTML =
+document.getElementById("bananaText").innerHTML =
 
 `Bananas caught: ${bananasCaught}/5`;
 
@@ -471,6 +472,7 @@ document.getElementById("bananaContinue")
 
 
 }
+
 
 
 };
@@ -494,6 +496,7 @@ banana.remove();
 },700);
 
 
+
 }
 
 
@@ -513,11 +516,11 @@ function blowCake(){
 let cake=document.querySelector(".cake");
 
 
-cake.style.transform=
-"scale(.7)";
+cake.style.transform="scale(.7)";
 
 
-cake.style.opacity=".4";
+cake.style.opacity=".3";
+
 
 
 createHearts();
@@ -531,6 +534,7 @@ next("letterScene");
 
 
 startLetter();
+
 
 
 },1200);
