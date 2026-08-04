@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Birthday Surprise ❤️</title>
+<title>Birthday Surprise</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -16,3 +16,299 @@
 
 
 <body>
+
+
+<div class="background"></div>
+
+
+
+<!-- 1. HEART -->
+
+<section class="scene active" id="heartScene">
+
+<h1>Catch my heart ❤️</h1>
+
+<p>
+I have a little surprise for you...
+</p>
+
+
+<div id="heart">
+❤️
+</div>
+
+
+<p id="heartMessage">
+Catch me if you can!
+</p>
+
+
+</section>
+
+
+
+
+
+
+<!-- 2. CODE -->
+
+<section class="scene" id="codeScene">
+
+
+<div class="card">
+
+
+<img src="dudu.gif" class="picture">
+
+
+<h1>
+Secret code 🔐
+</h1>
+
+
+<p>
+You caught my heart!
+<br>
+Enter the birthday date.
+</p>
+
+
+<input id="codeInput" placeholder="DDMM">
+
+
+<button onclick="checkCode()">
+Unlock
+</button>
+
+
+<p id="error"></p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- 3. BUBU DUDU -->
+
+<section class="scene" id="bubuScene">
+
+
+<div class="card">
+
+
+<img src="dudububu.gif" class="picture">
+
+
+<h1>
+A little adventure begins ✨
+</h1>
+
+
+<p>
+Something special was created for you.
+</p>
+
+
+<button onclick="next('giftScene')">
+Continue
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- 4. GIFT -->
+
+<section class="scene" id="giftScene">
+
+
+<div class="card">
+
+
+<img src="dudububu2.gif" class="picture">
+
+
+<h1>
+A little surprise 🎁
+</h1>
+
+
+<button onclick="next('catScene')">
+Next
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- 5. CAT -->
+
+<section class="scene" id="catScene">
+
+
+<div class="card">
+
+
+<img src="cat.jpg" class="picture">
+
+
+<h1>
+Smile 😸
+</h1>
+
+
+<p>
+A little cute moment for you.
+</p>
+
+
+<button onclick="next('minionScene')">
+Next
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- 6. MINIONS -->
+
+<section class="scene" id="minionScene">
+
+
+<div class="card">
+
+
+<img src="minions.jpg" class="picture">
+
+
+<h1>
+PAPOOOIII 🍌🍌🍌
+</h1>
+
+
+<h2>
+STOPAAAH 🛑
+</h2>
+
+
+<button onclick="next('cakeScene')">
+Continue
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- 7. CAKE -->
+
+<section class="scene" id="cakeScene">
+
+
+<div class="card">
+
+
+<h1>
+Make a wish ✨
+</h1>
+
+
+<img src="cake.gif" class="cake">
+
+
+<p>
+Blow the candles 🕯
+</p>
+
+
+<button onclick="blowCake()">
+Blow
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- 8. LETTER -->
+
+<section class="scene" id="letterScene">
+
+
+<div class="letter">
+
+
+<img src="dudububu3.gif" class="picture">
+
+
+<h1>
+For you ❤️
+</h1>
+
+
+<p id="letterText"></p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
