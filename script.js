@@ -41,7 +41,6 @@ document.getElementById("loveText").innerHTML =
 createHearts();
 
 
-
 }
 
 
@@ -66,7 +65,6 @@ next("catLoveScene");
 }
 
 
-
 };
 
 
@@ -77,7 +75,7 @@ next("catLoveScene");
 
 
 
-// CHANGE SCENE
+// SCENE CHANGE
 
 
 function next(id){
@@ -109,9 +107,7 @@ startBananas();
 }
 
 
-
 },300);
-
 
 
 }
@@ -163,7 +159,6 @@ h.remove();
 },4000);
 
 
-
 }
 
 
@@ -200,7 +195,8 @@ heartsFound++;
 
 
 
-document.getElementById("hiddenText").innerHTML =
+document.getElementById("hiddenText")
+.innerHTML =
 
 `Hearts found: ${heartsFound}/5`;
 
@@ -259,15 +255,14 @@ next("duduReward");
 
 }
 
-else {
+else{
 
 
-document.getElementById("error").innerHTML =
-"Wrong code 💭";
+document.getElementById("error")
+.innerHTML="Wrong code 💭";
 
 
 }
-
 
 
 }
@@ -333,14 +328,13 @@ next("question3");
 
 }
 
-else {
+else{
 
 
-next("catScene");
+next("georgeReward");
 
 
 }
-
 
 
 }
@@ -373,7 +367,8 @@ pawsFound++;
 
 
 
-document.getElementById("pawText").innerHTML =
+document.getElementById("pawText")
+.innerHTML =
 
 `Paws found: ${pawsFound}/3`;
 
@@ -386,7 +381,6 @@ createHearts();
 if(pawsFound===3){
 
 
-
 setTimeout(()=>{
 
 
@@ -394,7 +388,6 @@ next("catReward");
 
 
 },1000);
-
 
 
 }
@@ -416,7 +409,8 @@ next("catReward");
 function startBananas(){
 
 
-let box=document.getElementById("bananaGame");
+let box =
+document.getElementById("bananaGame");
 
 
 
@@ -428,13 +422,16 @@ if(bananasCaught>=5){
 
 clearInterval(interval);
 
+
 return;
 
 }
 
 
 
-let banana=document.createElement("div");
+let banana =
+document.createElement("div");
+
 
 
 banana.className="banana";
@@ -458,7 +455,8 @@ this.remove();
 
 
 
-document.getElementById("bananaText").innerHTML =
+document.getElementById("bananaText")
+.innerHTML =
 
 `Bananas caught: ${bananasCaught}/5`;
 
@@ -494,7 +492,6 @@ banana.remove();
 
 
 },700);
-
 
 
 }
@@ -585,7 +582,8 @@ Maria ❤️`;
 
 
 
-let box=document.getElementById("letterText");
+let box =
+document.getElementById("letterText");
 
 
 let i=0;
@@ -611,7 +609,6 @@ setTimeout(typing,30);
 
 
 }
-
 
 
 typing();
