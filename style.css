@@ -27,6 +27,7 @@ body {
 
 
 
+
 /* BACKGROUND LIGHT */
 
 .background {
@@ -36,11 +37,12 @@ body {
     inset:0;
 
     background:
-    linear-gradient(135deg,#ffd7e8,#fff1c9);
+    linear-gradient(135deg,#ffd7e8,#fff2cf);
 
     overflow:hidden;
 
 }
+
 
 
 .background::before {
@@ -57,8 +59,11 @@ body {
 
 
     background:
+
     radial-gradient(circle,
-    rgba(255,255,255,.9),
+
+    rgba(255,255,255,.95),
+
     transparent 70%);
 
 
@@ -67,9 +72,10 @@ body {
     left:-250px;
 
 
-    animation:light1 10s infinite alternate;
+    animation:lightMove 10s infinite alternate;
 
 }
+
 
 
 
@@ -79,54 +85,67 @@ body {
 
     position:absolute;
 
-    width:700px;
+    width:750px;
 
-    height:700px;
+    height:750px;
 
     border-radius:50%;
 
 
     background:
+
     radial-gradient(circle,
-    rgba(255,160,210,.4),
+
+    rgba(255,170,210,.45),
+
     transparent 70%);
 
 
-    right:-250px;
+    right:-300px;
 
     bottom:-250px;
 
 
-    animation:light2 12s infinite alternate;
+    animation:lightMove2 12s infinite alternate;
 
 }
 
 
 
-@keyframes light1 {
+@keyframes lightMove {
 
 from {
+
 transform:translate(0,0);
+
 }
 
 to {
+
 transform:translate(400px,250px);
-}
 
 }
 
+}
 
-@keyframes light2 {
+
+
+@keyframes lightMove2 {
 
 from {
+
 transform:translate(0,0);
+
 }
 
 to {
+
 transform:translate(-300px,-200px);
+
 }
 
 }
+
 
 
 
@@ -142,9 +161,12 @@ transform:translate(-300px,-200px);
 
     position:absolute;
 
+
     width:95%;
 
+
     max-width:850px;
+
 
     padding:20px;
 
@@ -154,11 +176,14 @@ transform:translate(-300px,-200px);
 
     opacity:0;
 
+
     pointer-events:none;
 
 
     transform:
+
     translateY(60px)
+
     scale(.85);
 
 
@@ -174,14 +199,16 @@ transform:translate(-300px,-200px);
 
 .scene.active {
 
-
     opacity:1;
+
 
     pointer-events:auto;
 
 
     transform:
+
     translateY(0)
+
     scale(1);
 
 }
@@ -194,7 +221,7 @@ transform:translate(-300px,-200px);
 
 
 
-/* CARD */
+/* CARDS */
 
 
 .card {
@@ -242,6 +269,7 @@ h1 {
 }
 
 
+
 h2 {
 
     color:#d85083;
@@ -251,11 +279,12 @@ h2 {
 }
 
 
+
 p {
 
     font-size:18px;
 
-    line-height:1.6;
+    line-height:1.55;
 
     color:#555;
 
@@ -268,7 +297,7 @@ p {
 
 
 
-/* BUTTON */
+/* BUTTONS */
 
 
 button {
@@ -344,9 +373,7 @@ input {
     border-radius:30px;
 
 
-    border:
-
-    2px solid #ffc1d8;
+    border:2px solid #ffc1d8;
 
 
     font-size:20px;
@@ -359,7 +386,6 @@ input {
 
 
 }
-
 
 
 
@@ -397,6 +423,7 @@ input {
 }
 
 
+
 @keyframes floatImage {
 
 
@@ -407,6 +434,7 @@ transform:translateY(-12px);
 }
 
 }
+
 
 
 
@@ -441,14 +469,15 @@ transform:translateY(-12px);
     display:inline-block;
 
 
+    animation:pulse 1.5s infinite;
+
+
     transition:
 
     transform .8s cubic-bezier(.25,.8,.25,1);
 
-
-    animation:pulse 1.5s infinite;
-
 }
+
 
 
 @keyframes pulse {
@@ -470,7 +499,7 @@ transform:scale(1.15);
 
 
 
-/* FLOATING HEARTS */
+/* FLOAT HEARTS */
 
 
 .floating-heart {
@@ -487,32 +516,38 @@ transform:scale(1.15);
 
     animation:
 
-    fly 5s linear forwards;
-
+    flyHeart 5s linear forwards;
 
 }
 
 
 
-@keyframes fly {
+@keyframes flyHeart {
 
 
 from {
 
 transform:
+
 translateY(0)
+
 scale(.5);
+
 
 opacity:1;
 
 }
 
 
+
 to {
 
 transform:
+
 translateY(-100vh)
+
 scale(1.8);
+
 
 opacity:0;
 
@@ -527,18 +562,19 @@ opacity:0;
 
 
 
-/* CAT MESSAGE */
+
+/* CAT MESSAGE GLOW */
 
 
 #catMessageScene .card {
 
 
-animation:
+    animation:
 
-glow 2s infinite alternate;
-
+    glow 2s infinite alternate;
 
 }
+
 
 
 @keyframes glow {
@@ -547,6 +583,7 @@ glow 2s infinite alternate;
 from {
 
 box-shadow:
+
 0 20px 60px rgba(255,180,210,.3);
 
 }
@@ -555,11 +592,13 @@ box-shadow:
 to {
 
 box-shadow:
+
 0 20px 90px rgba(255,180,210,.9);
 
 }
 
 }
+
 
 
 
@@ -574,37 +613,37 @@ box-shadow:
 .letter {
 
 
-width:95%;
+    width:95%;
 
 
-max-width:900px;
+    max-width:900px;
 
 
-max-height:90vh;
+    max-height:90vh;
 
 
-overflow:hidden;
+    overflow:hidden;
 
 
-background:
+    background:
 
-linear-gradient(#fffdf7,#fff0d5);
-
-
-padding:35px 55px;
+    linear-gradient(#fffdf7,#fff0d5);
 
 
-border-radius:35px;
+    padding:30px 45px;
 
 
-box-shadow:
-
-0 30px 90px rgba(0,0,0,.25);
+    border-radius:35px;
 
 
-animation:
+    box-shadow:
 
-openLetter 1.2s ease;
+    0 30px 90px rgba(0,0,0,.25);
+
+
+    animation:
+
+    openLetter 1.2s ease;
 
 
 }
@@ -619,7 +658,9 @@ from {
 transform:
 
 scale(.5)
+
 rotateX(60deg);
+
 
 opacity:0;
 
@@ -631,7 +672,9 @@ to {
 transform:
 
 scale(1)
+
 rotateX(0);
+
 
 opacity:1;
 
@@ -644,19 +687,20 @@ opacity:1;
 #letterText {
 
 
-white-space:pre-line;
+    white-space:pre-line;
 
 
-font-size:19px;
+    font-size:18px;
 
 
-line-height:1.5;
+    line-height:1.35;
 
 
-color:#604550;
+    color:#604550;
 
 
 }
+
 
 
 
@@ -673,7 +717,6 @@ color:#604550;
 animation:
 
 shake .5s infinite;
-
 
 }
 
