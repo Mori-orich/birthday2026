@@ -1,18 +1,21 @@
-let heartTries = 0;
+let heartAttempts = 0;
 let letterStarted = false;
+
 
 const heart = document.getElementById("heart");
 
 
+
 // ❤️ HEART GAME
 
-heart.addEventListener("mouseenter", function () {
+
+heart.addEventListener("mouseenter", () => {
 
 
-    if (heartTries < 2) {
+    if (heartAttempts < 2) {
 
 
-        heartTries++;
+        heartAttempts++;
 
 
         let x = Math.random() * 600 - 300;
@@ -20,10 +23,10 @@ heart.addEventListener("mouseenter", function () {
 
 
         heart.style.transform =
-        `translate(${x}px, ${y}px) scale(1.25)`;
+        `translate(${x}px, ${y}px) scale(1.3)`;
 
 
-        document.getElementById("heartText").innerHTML =
+        document.getElementById("heartMessage").innerHTML =
         "Almost! Catch me ❤️";
 
 
@@ -34,16 +37,17 @@ heart.addEventListener("mouseenter", function () {
         "scale(1.5)";
 
 
-        document.getElementById("heartText").innerHTML =
+        document.getElementById("heartMessage").innerHTML =
         "You caught my heart! 💕";
 
 
-        heart.onclick = function () {
+        heart.onclick = () => {
 
 
             createHearts();
 
-            showScene("codeScene");
+
+            next("codeScene");
 
 
         };
@@ -58,17 +62,22 @@ heart.addEventListener("mouseenter", function () {
 
 
 
-// 🌸 SCENE CHANGE
 
 
-function showScene(id) {
+
+// 🌸 CHANGE SCENE
+
+
+function next(sceneID){
 
 
     document
     .querySelectorAll(".scene")
     .forEach(scene => {
 
+
         scene.classList.remove("active");
+
 
     });
 
@@ -78,7 +87,7 @@ function showScene(id) {
 
 
         document
-        .getElementById(id)
+        .getElementById(sceneID)
         .classList.add("active");
 
 
@@ -93,26 +102,29 @@ function showScene(id) {
 
 
 
+
 // 🔐 CODE 0908
 
 
-function checkCode() {
+function checkCode(){
 
 
     let code =
+
     document
-    .getElementById("code")
+    .getElementById("codeInput")
     .value
     .trim();
 
 
 
-    if(code === "0908") {
+    if(code === "0908"){
 
 
         createHearts();
 
-        showScene("storyScene");
+
+        next("bubuScene");
 
 
     } else {
@@ -121,7 +133,8 @@ function checkCode() {
         document
         .getElementById("error")
         .innerHTML =
-        "Wrong code 💭 Try again";
+
+        "Wrong code. Try again 💭";
 
 
     }
@@ -136,39 +149,43 @@ function checkCode() {
 
 
 
-// ❤️ FLOATING HEARTS
+
+// ❤️ HEART EFFECT
 
 
-function createHearts() {
+function createHearts(){
 
 
-    for(let i = 0; i < 30; i++) {
+    for(let i = 0; i < 35; i++){
 
 
-        let heart =
-        document.createElement("div");
-
-
-        heart.innerHTML = "❤️";
+        let heart = document.createElement("div");
 
 
         heart.className =
         "floating-heart";
 
 
+        heart.innerHTML =
+        "❤️";
+
+
 
         heart.style.left =
-        Math.random() * 100 + "vw";
+
+        Math.random()*100 + "vw";
 
 
 
         heart.style.animationDuration =
-        (2 + Math.random() * 3) + "s";
+
+        (2 + Math.random()*3) + "s";
 
 
 
         heart.style.fontSize =
-        (20 + Math.random() * 25) + "px";
+
+        (20 + Math.random()*30) + "px";
 
 
 
@@ -176,7 +193,7 @@ function createHearts() {
 
 
 
-        setTimeout(() => {
+        setTimeout(()=>{
 
 
             heart.remove();
@@ -197,28 +214,27 @@ function createHearts() {
 
 
 
+
 // 🎂 CAKE
 
 
-function blowCake() {
+function blowCake(){
 
 
     let cake =
+
     document.querySelector(".cake");
 
 
 
-    cake.style.transition =
-    "1s";
-
-
-
     cake.style.transform =
+
     "scale(.7) rotate(10deg)";
 
 
 
     cake.style.opacity =
+
     "0.3";
 
 
@@ -227,17 +243,16 @@ function blowCake() {
 
 
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
 
-        showScene("letterScene");
+        next("letterScene");
 
 
         startLetter();
 
 
     },1200);
-
 
 
 }
@@ -249,10 +264,11 @@ function blowCake() {
 
 
 
+
 // 💌 LETTER
 
 
-function startLetter() {
+function startLetter(){
 
 
     if(letterStarted) return;
@@ -262,19 +278,19 @@ function startLetter() {
 
 
 
-    let message = `Dear you ❤️
+    let text = `Dear you ❤️
 
 
-I created this little surprise because I wanted to make your birthday a little more special.
+I created this little birthday surprise because I wanted to make something special for you.
 
 
-Even though we are far away, I hope this small adventure brings you a big smile.
+Even though we are far away, I hope this little adventure makes you smile.
 
 
-I wish you happiness, beautiful moments, dreams that come true and many reasons to smile.
+I wish you happiness, beautiful memories, dreams that come true and many reasons to be happy.
 
 
-Thank you for being an amazing person.
+Thank you for being such an important person in my life.
 
 
 Happy Birthday 🎂
@@ -284,24 +300,25 @@ With love ❤️`;
 
 
 
-    let i = 0;
+    let index = 0;
 
 
     let area =
-    document.getElementById("letter");
+
+    document.getElementById("letterText");
 
 
 
-    function typing() {
+    function typing(){
 
 
-        if(i < message.length) {
+        if(index < text.length){
 
 
-            area.innerHTML += message[i];
+            area.innerHTML += text[index];
 
 
-            i++;
+            index++;
 
 
             setTimeout(typing,35);
