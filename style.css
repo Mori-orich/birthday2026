@@ -19,11 +19,9 @@ body {
 
     align-items:center;
 
-    background:#ffe2ec;
+    background:#ffe5ef;
 
 }
-
-
 
 
 
@@ -37,12 +35,11 @@ body {
     inset:0;
 
     background:
-    linear-gradient(135deg,#ffd7e8,#fff2cf);
+    linear-gradient(135deg,#ffd9e8,#fff3d6);
 
     overflow:hidden;
 
 }
-
 
 
 .background::before {
@@ -57,25 +54,18 @@ body {
 
     border-radius:50%;
 
-
     background:
-
     radial-gradient(circle,
-
     rgba(255,255,255,.95),
-
     transparent 70%);
 
-
-    top:-350px;
+    top:-300px;
 
     left:-250px;
-
 
     animation:lightMove 10s infinite alternate;
 
 }
-
 
 
 
@@ -85,26 +75,20 @@ body {
 
     position:absolute;
 
-    width:750px;
+    width:700px;
 
-    height:750px;
+    height:700px;
 
     border-radius:50%;
 
-
     background:
-
     radial-gradient(circle,
-
-    rgba(255,170,210,.45),
-
+    rgba(255,180,220,.45),
     transparent 70%);
 
-
-    right:-300px;
+    right:-200px;
 
     bottom:-250px;
-
 
     animation:lightMove2 12s infinite alternate;
 
@@ -115,15 +99,11 @@ body {
 @keyframes lightMove {
 
 from {
-
 transform:translate(0,0);
-
 }
 
 to {
-
-transform:translate(400px,250px);
-
+transform:translate(350px,250px);
 }
 
 }
@@ -133,19 +113,14 @@ transform:translate(400px,250px);
 @keyframes lightMove2 {
 
 from {
-
 transform:translate(0,0);
-
 }
 
 to {
-
 transform:translate(-300px,-200px);
-
 }
 
 }
-
 
 
 
@@ -156,42 +131,31 @@ transform:translate(-300px,-200px);
 
 /* SCENES */
 
-
 .scene {
 
     position:absolute;
 
-
     width:95%;
-
 
     max-width:850px;
 
-
     padding:20px;
-
 
     text-align:center;
 
-
     opacity:0;
 
-
     pointer-events:none;
-
 
     transform:
 
     translateY(60px)
-
     scale(.85);
 
 
     transition:
 
-    opacity .9s ease,
-
-    transform .9s cubic-bezier(.2,.8,.2,1);
+    .8s ease;
 
 }
 
@@ -201,14 +165,12 @@ transform:translate(-300px,-200px);
 
     opacity:1;
 
-
     pointer-events:auto;
 
 
     transform:
 
     translateY(0)
-
     scale(1);
 
 }
@@ -220,12 +182,10 @@ transform:translate(-300px,-200px);
 
 
 
-
-/* CARDS */
+/* CARD */
 
 
 .card {
-
 
     background:
 
@@ -235,17 +195,16 @@ transform:translate(-300px,-200px);
     backdrop-filter:blur(20px);
 
 
-    border-radius:40px;
-
-
     padding:35px;
+
+
+    border-radius:40px;
 
 
     box-shadow:
 
     0 30px 90px rgba(0,0,0,.18);
 
-
 }
 
 
@@ -255,36 +214,30 @@ transform:translate(-300px,-200px);
 
 
 
-/* TEXT */
-
 
 h1 {
 
-    font-size:42px;
+    font-size:40px;
 
     font-weight:800;
 
     color:#d85083;
 
 }
-
 
 
 h2 {
 
     color:#d85083;
 
-    font-weight:800;
-
 }
-
 
 
 p {
 
     font-size:18px;
 
-    line-height:1.55;
+    line-height:1.4;
 
     color:#555;
 
@@ -297,20 +250,13 @@ p {
 
 
 
-/* BUTTONS */
-
-
 button {
-
 
     display:block;
 
-
     width:85%;
 
-
     margin:14px auto;
-
 
     padding:15px;
 
@@ -323,7 +269,7 @@ button {
 
     background:
 
-    linear-gradient(135deg,#ed7099,#d94f82);
+    linear-gradient(135deg,#ef719c,#d94f82);
 
 
     color:white;
@@ -339,7 +285,6 @@ button {
 
 
     transition:.3s;
-
 
 }
 
@@ -358,34 +303,22 @@ button:hover {
 
 
 
-/* INPUT */
-
-
 input {
-
 
     width:80%;
 
-
-    padding:16px;
-
+    padding:15px;
 
     border-radius:30px;
 
-
     border:2px solid #ffc1d8;
-
 
     font-size:20px;
 
-
     text-align:center;
 
-
-    font-weight:700;
-
-
 }
+
 
 
 
@@ -399,33 +332,21 @@ input {
 
 .picture {
 
-
     width:260px;
-
 
     max-height:260px;
 
-
     object-fit:contain;
-
 
     border-radius:30px;
 
-
-    animation:floatImage 3s infinite ease-in-out;
-
-
-    box-shadow:
-
-    0 15px 40px rgba(0,0,0,.15);
-
+    animation:float 3s infinite ease-in-out;
 
 }
 
 
 
-@keyframes floatImage {
-
+@keyframes float {
 
 50% {
 
@@ -437,14 +358,12 @@ transform:translateY(-12px);
 
 
 
-
 .cake {
 
     width:300px;
 
-    border-radius:25px;
-
 }
+
 
 
 
@@ -459,29 +378,21 @@ transform:translateY(-12px);
 
 #heart {
 
-
     font-size:130px;
-
 
     cursor:pointer;
 
-
     display:inline-block;
-
 
     animation:pulse 1.5s infinite;
 
-
-    transition:
-
-    transform .8s cubic-bezier(.25,.8,.25,1);
+    transition:.8s;
 
 }
 
 
 
 @keyframes pulse {
-
 
 50% {
 
@@ -498,56 +409,27 @@ transform:scale(1.15);
 
 
 
-
-/* FLOAT HEARTS */
+/* FLOATING HEARTS */
 
 
 .floating-heart {
 
-
     position:fixed;
-
 
     bottom:-30px;
 
-
-    z-index:20;
-
-
-    animation:
-
-    flyHeart 5s linear forwards;
+    animation:heartFly 5s linear forwards;
 
 }
 
 
 
-@keyframes flyHeart {
-
-
-from {
-
-transform:
-
-translateY(0)
-
-scale(.5);
-
-
-opacity:1;
-
-}
-
+@keyframes heartFly {
 
 
 to {
 
-transform:
-
-translateY(-100vh)
-
-scale(1.8);
-
+transform:translateY(-100vh) scale(1.8);
 
 opacity:0;
 
@@ -563,15 +445,65 @@ opacity:0;
 
 
 
-/* CAT MESSAGE GLOW */
+/* PAWS */
+
+
+.paws {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    margin:25px;
+
+}
+
+
+
+.paw {
+
+    font-size:45px;
+
+    cursor:pointer;
+
+    transition:.5s;
+
+}
+
+
+
+.paw:hover {
+
+    transform:scale(1.3) rotate(20deg);
+
+}
+
+
+
+.paw.found {
+
+    opacity:.2;
+
+    transform:scale(.7);
+
+}
+
+
+
+
+
+
+
+
+
+/* CAT MESSAGE */
 
 
 #catMessageScene .card {
 
-
-    animation:
-
-    glow 2s infinite alternate;
+    animation:glow 2s infinite alternate;
 
 }
 
@@ -579,12 +511,11 @@ opacity:0;
 
 @keyframes glow {
 
-
 from {
 
 box-shadow:
 
-0 20px 60px rgba(255,180,210,.3);
+0 20px 60px rgba(255,170,210,.3);
 
 }
 
@@ -593,12 +524,115 @@ to {
 
 box-shadow:
 
-0 20px 90px rgba(255,180,210,.9);
+0 20px 90px rgba(255,170,210,.9);
 
 }
 
 }
 
+
+
+
+
+
+
+
+/* MINIONS */
+
+
+.minionCard {
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+.minionImage {
+
+    animation:
+
+    minionJump 1.5s infinite;
+
+}
+
+
+
+@keyframes minionJump {
+
+
+50% {
+
+transform:translateY(-15px);
+
+}
+
+}
+
+
+
+#bananaRain {
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
+
+
+
+.banana {
+
+    position:absolute;
+
+    top:-50px;
+
+    animation:bananaFall 5s linear forwards;
+
+}
+
+
+
+@keyframes bananaFall {
+
+to {
+
+transform:translateY(600px) rotate(360deg);
+
+}
+
+}
+
+
+
+#minionScene h1 {
+
+    animation:shake .5s infinite;
+
+}
+
+
+
+@keyframes shake {
+
+25% {
+
+transform:rotate(-5deg);
+
+}
+
+
+75% {
+
+transform:rotate(5deg);
+
+}
+
+}
 
 
 
@@ -625,12 +659,12 @@ box-shadow:
     overflow:hidden;
 
 
+    padding:25px 40px;
+
+
     background:
 
     linear-gradient(#fffdf7,#fff0d5);
-
-
-    padding:30px 45px;
 
 
     border-radius:35px;
@@ -641,10 +675,7 @@ box-shadow:
     0 30px 90px rgba(0,0,0,.25);
 
 
-    animation:
-
-    openLetter 1.2s ease;
-
+    animation:openLetter 1s ease;
 
 }
 
@@ -655,12 +686,7 @@ box-shadow:
 
 from {
 
-transform:
-
-scale(.5)
-
-rotateX(60deg);
-
+transform:scale(.5);
 
 opacity:0;
 
@@ -669,12 +695,7 @@ opacity:0;
 
 to {
 
-transform:
-
-scale(1)
-
-rotateX(0);
-
+transform:scale(1);
 
 opacity:1;
 
@@ -686,56 +707,12 @@ opacity:1;
 
 #letterText {
 
-
     white-space:pre-line;
 
+    font-size:17px;
 
-    font-size:18px;
-
-
-    line-height:1.35;
-
+    line-height:1.15;
 
     color:#604550;
-
-
-}
-
-
-
-
-
-
-
-
-/* MINIONS */
-
-
-#minionScene h1 {
-
-
-animation:
-
-shake .5s infinite;
-
-}
-
-
-
-@keyframes shake {
-
-
-25% {
-
-transform:rotate(-5deg);
-
-}
-
-
-75% {
-
-transform:rotate(5deg);
-
-}
 
 }
