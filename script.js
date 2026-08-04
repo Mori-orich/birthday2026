@@ -1,17 +1,24 @@
 let heartClicks = 0;
+
 let currentQuestion = 1;
+
+let pawsFound = 0;
+
 let letterStarted = false;
+
 
 
 // ❤️ HEART GAME
 
+
 const heart = document.getElementById("heart");
 
 
-function randomHeartPosition(){
+function moveHeart(){
 
-    let x = Math.random() * 500 - 250;
-    let y = Math.random() * 350 - 175;
+    let x = Math.random() * 450 - 225;
+
+    let y = Math.random() * 250 - 125;
 
 
     heart.style.transform =
@@ -39,7 +46,7 @@ heart.onclick = function(){
         `You found me ${heartClicks}/3 ❤️`;
 
 
-        randomHeartPosition();
+        moveHeart();
 
 
     } else {
@@ -72,19 +79,16 @@ heart.onclick = function(){
 
 
 
-// 🌸 SCENE CHANGE
+// 🌸 CHANGE SCENE
 
 
 function next(id){
 
 
-    document
-    .querySelectorAll(".scene")
+    document.querySelectorAll(".scene")
     .forEach(scene=>{
 
-
         scene.classList.remove("active");
-
 
     });
 
@@ -98,7 +102,15 @@ function next(id){
         .classList.add("active");
 
 
-    },250);
+
+        if(id==="minionScene"){
+
+            startBananas();
+
+        }
+
+
+    },300);
 
 
 }
@@ -118,19 +130,16 @@ function checkCode(){
 
 
     let code =
-
-    document
-    .getElementById("codeInput")
+    document.getElementById("codeInput")
     .value
     .trim();
 
 
 
-    if(code === "0908"){
+    if(code==="0908"){
 
 
         createHearts();
-
 
         next("quizIntro");
 
@@ -138,11 +147,9 @@ function checkCode(){
     } else {
 
 
-        document
-        .getElementById("error")
-        .innerHTML =
+        document.getElementById("error").innerHTML =
 
-        "Wrong code 💭 Try again";
+        "Wrong code 💭";
 
 
     }
@@ -163,9 +170,7 @@ function checkCode(){
 
 function startQuiz(){
 
-
     next("question1");
-
 
 }
 
@@ -179,35 +184,30 @@ function answer(correct){
     if(correct){
 
 
-        if(currentQuestion === 1){
+        if(currentQuestion===1){
 
 
-            currentQuestion = 2;
-
+            currentQuestion=2;
 
             next("question2");
 
 
         }
 
+        else if(currentQuestion===2){
 
-        else if(currentQuestion === 2){
 
-
-            currentQuestion = 3;
-
+            currentQuestion=3;
 
             next("question3");
 
 
         }
 
-
         else {
 
 
             createHearts();
-
 
             next("successScene");
 
@@ -215,10 +215,11 @@ function answer(correct){
         }
 
 
+
     } else {
 
 
-        alert("Hmm... try again 😄");
+        alert("Try again 😄");
 
 
     }
@@ -234,49 +235,158 @@ function answer(correct){
 
 
 
-// ❤️ HEART PARTICLES
+// 🐾 PAW QUEST
+
+
+function findPaw(element){
+
+
+    if(element.classList.contains("found")) return;
+
+
+
+    element.classList.add("found");
+
+
+    pawsFound++;
+
+
+
+    document.getElementById("pawText").innerHTML =
+
+    `Paws found: ${pawsFound}/3`;
+
+
+
+    createHearts();
+
+
+
+    if(pawsFound===3){
+
+
+        setTimeout(()=>{
+
+
+            next("catMessageScene");
+
+
+        },1000);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+// ❤️ PARTICLES
 
 
 function createHearts(){
 
 
-    for(let i=0;i<20;i++){
+    for(let i=0;i<15;i++){
 
 
-        let h =
+        let heart =
         document.createElement("div");
 
 
-        h.className =
+        heart.className =
         "floating-heart";
 
 
-        h.innerHTML =
+        heart.innerHTML =
         "❤️";
 
 
-        h.style.left =
+        heart.style.left =
         Math.random()*100+"vw";
 
 
-        h.style.fontSize =
-        (20+Math.random()*35)+"px";
-
-
-        h.style.animationDuration =
-
-        (3+Math.random()*3)+"s";
+        heart.style.fontSize =
+        20+Math.random()*30+"px";
 
 
 
-        document.body.appendChild(h);
+        document.body.appendChild(heart);
 
 
 
         setTimeout(()=>{
 
 
-            h.remove();
+            heart.remove();
+
+
+        },5000);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+// 🍌 MINION BANANAS
+
+
+function startBananas(){
+
+
+    let box =
+    document.getElementById("bananaRain");
+
+
+
+    for(let i=0;i<20;i++){
+
+
+        let banana =
+        document.createElement("div");
+
+
+
+        banana.className =
+        "banana";
+
+
+        banana.innerHTML =
+        "🍌";
+
+
+        banana.style.left =
+        Math.random()*100+"%";
+
+
+        banana.style.animationDelay =
+        Math.random()*3+"s";
+
+
+
+        box.appendChild(banana);
+
+
+
+        setTimeout(()=>{
+
+
+            banana.remove();
 
 
         },6000);
@@ -305,16 +415,13 @@ function blowCake(){
     document.querySelector(".cake");
 
 
-    cake.style.transition =
-    "1.5s";
-
 
     cake.style.transform =
-    "scale(.7) rotate(8deg)";
+    "scale(.7) rotate(10deg)";
 
 
     cake.style.opacity =
-    ".3";
+    ".4";
 
 
 
@@ -353,37 +460,25 @@ function startLetter(){
     if(letterStarted) return;
 
 
-    letterStarted = true;
+    letterStarted=true;
 
 
 
     let text = `Dear George ❤️
 
-
 Happy Birthday! 🎂
 
+I wanted to create something special for you — not just a simple message, but a little adventure made with care, surprises and smiles.
 
-I wanted to create something a little different for you.
+Even though we are far away, I want you to know that you are a very special person to me. I hope this little gift reminds you that someone is thinking about you.
 
-Not just a simple birthday message, but a small adventure with surprises, smiles and little moments made especially for you.
-
-
-Even though we are far away, I want you to know that you are a very special person to me.
-
-I hope this little gift reminds you that someone is thinking about you and wishing you happiness.
-
-
-May your days be full of laughter, success, amazing memories and moments that make you smile.
-
-
-Never stop being the wonderful person you are.
-
+I wish you happiness, success, beautiful memories and many reasons to smile.
 
 Thank you for all the conversations, jokes and unforgettable moments.
 
+Stay the amazing person you are.
 
-I hope your birthday is as amazing as you deserve ❤️
-
+Have the best birthday ever ❤️
 
 With love,
 Maria ❤️`;
@@ -394,14 +489,14 @@ Maria ❤️`;
     document.getElementById("letterText");
 
 
-    let i = 0;
+    let i=0;
 
 
 
-    function typing(){
+    function type(){
 
 
-        if(i < text.length){
+        if(i<text.length){
 
 
             box.innerHTML += text[i];
@@ -410,7 +505,7 @@ Maria ❤️`;
             i++;
 
 
-            setTimeout(typing,35);
+            setTimeout(type,30);
 
 
         }
@@ -419,7 +514,7 @@ Maria ❤️`;
     }
 
 
-    typing();
+    type();
 
 
 }
