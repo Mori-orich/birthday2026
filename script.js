@@ -590,26 +590,26 @@ let i=0;
 
 function typing(){
 
+    if(i < text.length){
 
-if(i<text.length){
+        box.innerHTML += text[i];
 
+        i++;
 
-box.innerHTML+=text[i];
+        setTimeout(typing,30);
 
+    } else {
 
-i++;
+        setTimeout(() => {
 
+            next("finalScene");
 
-setTimeout(typing,30);
+        },1500);
 
+    }
 
 }
-
-
-}
-
 
 typing();
-
 
 }
