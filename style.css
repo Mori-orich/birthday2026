@@ -4,48 +4,66 @@
 
 
 body {
-
     margin: 0;
-
     min-height: 100vh;
-
     overflow: hidden;
-
     font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #ffe1ec, #fff5d6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    background:
-    linear-gradient(135deg,#ffe1ec,#fff4d6);
 
-    display:flex;
+.stars {
+    position: fixed;
+    inset: 0;
+    background-image:
+    radial-gradient(circle, white 2px, transparent 3px);
+    background-size: 80px 80px;
+    opacity: .5;
+    animation: starsMove 15s linear infinite;
+}
 
-    justify-content:center;
 
-    align-items:center;
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(80px);
+    }
 
 }
 
 
 
-/* scenes */
+
+/* SCENES */
+
 
 .scene {
 
-    position:absolute;
+    position: absolute;
 
-    width:100%;
+    width: 100%;
+    max-width: 500px;
 
-    max-width:500px;
+    padding: 25px;
 
-    padding:25px;
-
-    text-align:center;
+    text-align: center;
 
 
-    opacity:0;
+    opacity: 0;
 
-    transform:scale(.85) translateY(40px);
+    transform:
+    scale(.85)
+    translateY(40px);
 
-    pointer-events:none;
+
+    pointer-events: none;
 
 
     transition:
@@ -60,11 +78,14 @@ body {
 
 .scene.active {
 
-    opacity:1;
+    opacity: 1;
 
-    transform:scale(1) translateY(0);
+    transform:
+    scale(1)
+    translateY(0);
 
-    pointer-events:auto;
+
+    pointer-events: auto;
 
 }
 
@@ -73,25 +94,34 @@ body {
 
 
 
+/* TEXT */
+
+
 h1 {
 
-    font-family:'Dancing Script', cursive;
+    font-family: 'Dancing Script', cursive;
 
-    font-size:48px;
+    font-size: 48px;
 
-    color:#d45b86;
+    color:#d85c87;
 
     margin-bottom:15px;
 
 }
 
 
+h2 {
+
+    color:#d85c87;
+
+}
+
 
 p {
 
-    font-size:18px;
-
     color:#555;
+
+    font-size:18px;
 
     line-height:1.6;
 
@@ -100,20 +130,48 @@ p {
 
 
 
-/* heart game */
+
+/* CARDS */
+
+
+.card {
+
+    background:
+    rgba(255,255,255,.85);
+
+
+    backdrop-filter:
+    blur(15px);
+
+
+    border-radius:35px;
+
+
+    padding:35px 25px;
+
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.15);
+
+}
+
+
+
+
+
+/* HEART */
 
 
 #heart {
 
-    font-size:100px;
+    font-size:110px;
 
     cursor:pointer;
 
-    position:relative;
-
     display:inline-block;
 
-    transition:.35s ease;
+    transition:.4s;
+
 
     animation:pulse 1.5s infinite;
 
@@ -133,60 +191,10 @@ p {
 
 
 
-.heartMove {
-
-    position:absolute !important;
-
-}
 
 
 
-
-
-
-/* cards */
-
-
-.card {
-
-    background:rgba(255,255,255,.8);
-
-    backdrop-filter:blur(15px);
-
-    padding:35px 25px;
-
-    border-radius:35px;
-
-    box-shadow:
-
-    0 20px 60px rgba(0,0,0,.15);
-
-}
-
-
-
-
-
-input {
-
-    width:80%;
-
-    padding:15px;
-
-    border-radius:25px;
-
-    border:2px solid #ffc1d6;
-
-    text-align:center;
-
-    font-size:18px;
-
-    outline:none;
-
-}
-
-
-
+/* BUTTON */
 
 
 button {
@@ -195,17 +203,23 @@ button {
 
     padding:14px 35px;
 
-    border:0;
+
+    border:none;
 
     border-radius:30px;
 
+
     background:#e9789b;
+
 
     color:white;
 
+
     font-size:18px;
 
+
     cursor:pointer;
+
 
     transition:.3s;
 
@@ -223,16 +237,50 @@ button:hover {
 
 
 
-/* pictures */
+
+/* INPUT */
 
 
-.picture {
+input {
 
-    width:220px;
+    width:80%;
 
-    max-height:220px;
+    padding:15px;
+
+
+    border-radius:25px;
+
+
+    border:2px solid #ffc2d7;
+
+
+    text-align:center;
+
+
+    font-size:18px;
+
+
+    outline:none;
+
+}
+
+
+
+
+
+
+/* IMAGES */
+
+
+.image {
+
+    width:230px;
+
+    max-height:230px;
 
     object-fit:contain;
+
+    border-radius:25px;
 
 }
 
@@ -240,7 +288,7 @@ button:hover {
 
 .cake {
 
-    width:250px;
+    width:260px;
 
     border-radius:20px;
 
@@ -250,28 +298,34 @@ button:hover {
 
 
 
-/* letter */
+
+/* LETTER */
 
 
 .letter {
 
     background:
+    linear-gradient(#fffdf7,#fff2d8);
 
-    linear-gradient(#fffdf7,#fff5df);
 
-    padding:40px 30px;
+    padding:35px;
 
-    border-radius:10px;
 
-    min-height:450px;
+    border-radius:15px;
+
+
+    min-height:500px;
+
 
     box-shadow:
+    0 20px 50px rgba(0,0,0,.2);
 
-    0 20px 50px rgba(0,0,0,.18);
 
     text-align:left;
 
-    animation:paper .8s;
+
+    animation:
+    openPaper 1s;
 
 }
 
@@ -285,24 +339,33 @@ button:hover {
 
 
 
-#letterText {
+#letter {
 
-    font-family:'Dancing Script',cursive;
+
+    font-family:
+    'Dancing Script',
+    cursive;
+
 
     font-size:28px;
 
-    color:#5b4650;
+
+    color:#604550;
+
+    white-space:pre-line;
 
 }
 
 
 
-@keyframes paper {
+
+
+@keyframes openPaper {
+
 
     from {
 
         transform:
-
         rotateX(90deg);
 
     }
@@ -311,7 +374,6 @@ button:hover {
     to {
 
         transform:
-
         rotateX(0);
 
     }
@@ -323,34 +385,30 @@ button:hover {
 
 
 
-/* floating background */
+/* MINIONS EFFECT */
 
 
-body:before {
+#minionScene h1 {
 
-    content:"✨ ✨ ✨";
-
-    position:fixed;
-
-    top:10%;
-
-    left:10%;
-
-    font-size:30px;
-
-    opacity:.4;
-
-    animation:floating 8s infinite;
+    animation:
+    shake .7s infinite;
 
 }
 
 
+@keyframes shake {
 
-@keyframes floating {
 
-    50% {
+    25% {
 
-        transform:translateY(40px);
+        transform:rotate(-5deg);
+
+    }
+
+
+    75% {
+
+        transform:rotate(5deg);
 
     }
 
