@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>George Birthday Adventure</title>
@@ -22,30 +23,62 @@
 
 
 
-<!-- HEART GAME -->
+<!-- LOVE VESSEL GAME -->
 
-<section class="scene active" id="heartScene">
+<section class="scene active" id="loveScene">
+
 
 <div class="card">
 
-<h1>Catch my heart ❤️</h1>
+
+<h1>
+Fill the love vessel ❤️
+</h1>
+
 
 <p>
-A little birthday adventure is waiting for you...
+Click the heart and fill it with love!
 </p>
 
 
-<div id="heart">
+
+<div class="loveGame">
+
+
+<div id="heartButton">
 ❤️
 </div>
 
 
-<p id="heartText">
-Find me 3 times!
-</p>
+
+<div class="vessel">
+
+
+<div id="loveFill">
+
+</div>
 
 
 </div>
+
+
+</div>
+
+
+
+<h2 id="lovePercent">
+0%
+</h2>
+
+
+<p id="loveText">
+Love level: empty
+</p>
+
+
+
+</div>
+
 
 </section>
 
@@ -56,11 +89,61 @@ Find me 3 times!
 
 
 
+<!-- HIDDEN HEARTS -->
+
+
+<section class="scene" id="hiddenHeartScene">
+
+
+<div class="card">
+
+
+<h1>
+Find the hidden hearts ❤️
+</h1>
+
+
+<p>
+Someone left little hearts around...
+
+Find all 5!
+
+</p>
+
+
+<div id="hiddenArea">
+
+
+<span class="hiddenHeart">❤️</span>
+
+<span class="hiddenHeart">❤️</span>
+
+<span class="hiddenHeart">❤️</span>
+
+<span class="hiddenHeart">❤️</span>
+
+<span class="hiddenHeart">❤️</span>
+
+
+</div>
+
+
+<p id="hiddenText">
+Hearts found: 0/5
+</p>
+
+
+
+</div>
+
+
+</section>
 <!-- SECRET CODE -->
 
 <section class="scene" id="codeScene">
 
 <div class="card">
+
 
 <img src="dudu.gif" class="picture">
 
@@ -72,7 +155,7 @@ Secret code 🔐
 
 <p>
 
-You found my heart!
+You unlocked the first challenge!
 
 <br><br>
 
@@ -107,11 +190,13 @@ Unlock ✨
 
 
 
-<!-- QUIZ INTRO -->
+<!-- GEORGE TEST -->
 
 <section class="scene" id="quizIntro">
 
+
 <div class="card">
+
 
 <img src="dudububu.gif" class="picture">
 
@@ -123,21 +208,20 @@ Wait... 🤔
 
 <p>
 
-Now I need to make sure that you are really George.
+Before continuing...
 
-<br><br>
-
-Complete this little test to continue ❤️
+I need to make sure that you are really George.
 
 </p>
 
 
 <button onclick="startQuiz()">
-Start the test
+Start test
 </button>
 
 
 </div>
+
 
 </section>
 
@@ -151,6 +235,7 @@ Start the test
 <!-- QUESTION 1 -->
 
 <section class="scene" id="question1">
+
 
 <div class="card">
 
@@ -182,6 +267,7 @@ C) Escape from Tarkov
 
 </div>
 
+
 </section>
 
 
@@ -194,6 +280,7 @@ C) Escape from Tarkov
 <!-- QUESTION 2 -->
 
 <section class="scene" id="question2">
+
 
 <div class="card">
 
@@ -225,6 +312,7 @@ C) Maria
 
 </div>
 
+
 </section>
 
 
@@ -237,6 +325,7 @@ C) Maria
 <!-- QUESTION 3 -->
 
 <section class="scene" id="question3">
+
 
 <div class="card">
 
@@ -268,85 +357,56 @@ C) Ragebaiting Maria
 
 </div>
 
-</section>
-
-
-
-
-
-
-
-
-<!-- SUCCESS -->
-
-<section class="scene" id="successScene">
-
-<div class="card">
-
-
-<img src="dudububu2.gif" class="picture">
-
-
-<h1>
-Perfect! 🎉
-</h1>
-
-
-<p>
-You are really George ❤️
-
-<br><br>
-
-The adventure continues...
-
-</p>
-
-
-<button onclick="next('catScene')">
-Continue
-</button>
-
-
-</div>
 
 </section>
+
+
+
+
+
+
+
+
 <!-- CAT QUEST -->
+
 
 <section class="scene" id="catScene">
 
-<div class="card">
+
+<div class="card catCard">
 
 
 <img src="cat.jpg" class="picture">
 
 
 <h1>
-A little friend found you 🐾
+The cat has a secret 🐾
 </h1>
 
 
 <p>
+The little friend left clues around...
 
-A little cat has a secret for you...
-
-<br><br>
-
-But first, find 3 hidden paw prints!
+Find all hidden paw prints!
 
 </p>
 
 
-<div class="paws">
+
+<span class="paw paw1" onclick="findPaw(this)">
+🐾
+</span>
 
 
-<span class="paw" onclick="findPaw(this)">🐾</span>
-
-<span class="paw" onclick="findPaw(this)">🐾</span>
-
-<span class="paw" onclick="findPaw(this)">🐾</span>
+<span class="paw paw2" onclick="findPaw(this)">
+🐾
+</span>
 
 
-</div>
+<span class="paw paw3" onclick="findPaw(this)">
+🐾
+</span>
+
 
 
 <p id="pawText">
@@ -354,21 +414,14 @@ Paws found: 0/3
 </p>
 
 
-
 </div>
 
+
 </section>
-
-
-
-
-
-
-
-
 <!-- CAT MESSAGE -->
 
 <section class="scene" id="catMessageScene">
+
 
 <div class="card">
 
@@ -383,15 +436,19 @@ Secret message ✉️
 
 <p>
 
-The little friend left something behind...
+You found all the clues! 🐾
 
 <br><br>
 
-"Small things can create the biggest smiles."
+The little cat left a message:
 
 <br><br>
 
-The next surprise is coming...
+"Small moments can create the biggest smiles."
+
+<br><br>
+
+But someone else wants to join the party...
 
 </p>
 
@@ -403,6 +460,7 @@ Open surprise 🍌
 
 </div>
 
+
 </section>
 
 
@@ -412,25 +470,24 @@ Open surprise 🍌
 
 
 
-<!-- MINIONS -->
+<!-- MINIONS BANANA GAME -->
+
 
 <section class="scene" id="minionScene">
+
 
 <div class="card minionCard">
 
 
-<div id="bananaRain"></div>
-
-
 <img 
 src="minions.gif" 
-class="picture minionImage"
+class="picture"
 onerror="this.src='minions.jpg'"
 >
 
 
 <h1>
-PAPOOOIII 🍌🍌🍌
+PAPOOOIII 🍌
 </h1>
 
 
@@ -441,25 +498,37 @@ STOPAAAH 🛑
 
 <p>
 
-Emergency birthday team has arrived! 🚨
-
-<br><br>
-
-The minions came to celebrate your special day!
+The minions arrived!
 
 <br>
 
-They brought chaos, bananas and happiness 🎉
+Catch 5 bananas to complete the mission!
 
 </p>
 
 
-<button onclick="next('cakeScene')">
+
+<div id="bananaGame">
+
+</div>
+
+
+
+<p id="bananaText">
+Bananas caught: 0/5
+</p>
+
+
+
+<button id="bananaContinue" onclick="next('cakeScene')" disabled>
+
 Continue
+
 </button>
 
 
 </div>
+
 
 </section>
 
@@ -472,7 +541,9 @@ Continue
 
 <!-- CAKE -->
 
+
 <section class="scene" id="cakeScene">
+
 
 <div class="card">
 
@@ -491,11 +562,14 @@ Blow the candle 🕯
 
 
 <button onclick="blowCake()">
+
 Blow 💨
+
 </button>
 
 
 </div>
+
 
 </section>
 
@@ -507,6 +581,7 @@ Blow 💨
 
 
 <!-- LETTER -->
+
 
 <section class="scene" id="letterScene">
 
