@@ -1,196 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday ❤️</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<title>Bubu & Dudu Surprise 💌</title>
 
 <link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!-- Floating Hearts -->
 
-<div id="floating-hearts"></div>
+<div class="stars"></div>
 
-<!-- Balloons -->
 
-<div id="balloons"></div>
+<!-- PASSWORD SCREEN -->
 
-<!-- Confetti -->
+<div class="screen active" id="passwordScreen">
 
-<div id="confetti"></div>
+    <div class="box">
 
-<!-- Music -->
+        <div class="heart">❤️</div>
 
-<audio id="birthdayMusic" loop>
-<source src="assets/happy-birthday.mp3" type="audio/mpeg">
-</audio>
+        <h1>Bubu & Dudu</h1>
 
-<button id="musicButton">
+        <p>
+        A little birthday surprise is waiting for you...
+        </p>
 
-🎵
+        <input 
+        type="password" 
+        id="password"
+        placeholder="Enter the secret code">
 
-<span>Music</span>
+        <button onclick="checkPassword()">
+        Open 💌
+        </button>
 
-</button>
+        <p id="error"></p>
 
-<!-- ========================= -->
-
-<!-- HEART SCREEN -->
-
-<!-- ========================= -->
-
-<section id="heart-screen" class="screen active">
-
-<div class="glass">
-
-<h1>
-
-I hid my little heart...
-
-</h1>
-
-<p>
-
-Catch it if you can ❤️
-
-</p>
-
-<div id="heart">
-
-❤️
+    </div>
 
 </div>
 
-<p id="heartHint">
 
-Try to click it...
 
-</p>
+<!-- ENVELOPE SCREEN -->
 
-</div>
+<div class="screen" id="envelopeScreen">
 
-</section>
+    <div class="envelope" onclick="openLetter()">
 
-<!-- ========================= -->
+        💌
 
-<!-- FOUND HEART -->
+    </div>
 
-<!-- ========================= -->
-
-<section id="found-screen" class="screen">
-
-<div class="glass">
-
-<h1>
-
-You found me ❤️
-
-</h1>
-
-<p>
-
-Good job...
-
-I knew you would.
-
-</p>
-
-<button id="continueButton">
-
-Continue →
-
-</button>
+    <h2>
+    Tap the envelope
+    </h2>
 
 </div>
 
-</section>
 
-<!-- ========================= -->
 
-<!-- ENVELOPE -->
 
-<!-- ========================= -->
+<!-- LETTER SCREEN -->
 
-<section id="envelope-screen" class="screen">
+<div class="screen" id="letterScreen">
 
-<div class="envelope-wrapper">
-
-<p class="openText">
-
-Open me...
-
-</p>
-
-<div id="envelope">
 
 <div class="letter">
 
-💌
+<h1>
+Happy Birthday 🎂
+</h1>
 
-</div>
 
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-
-<!-- PASSWORD -->
-
-<!-- ========================= -->
-
-<section id="password-screen" class="screen">
-
-<div class="glass">
-
-<h2>
-
-One tiny secret...
-
-</h2>
-
-<p>
-
-Enter the special date
+<p id="text">
 
 </p>
 
-<input
 
-id="passwordInput"
-
-placeholder="dd/mm"
-
-maxlength="5">
-
-<button id="passwordButton">
-
-Unlock ❤️
-
+<button onclick="nextQuest()">
+Continue ✨
 </button>
 
-<p id="passwordError"></p>
 
 </div>
 
-</section>
 
-<!-- ========================= -->
+</div>
 
-<!-- STORY -->
 
-<!-- дальше будет -->
+
+
+
+<!-- QUEST SCREEN -->
+
+<div class="screen" id="questScreen">
+
+
+<div class="quest">
+
+
+<h1>
+A little quest ⭐
+</h1>
+
+
+<p>
+Find the hidden stars to unlock the surprise!
+</p>
+
+
+<div class="game">
+
+<span onclick="findStar(this)">⭐</span>
+<span onclick="findStar(this)">⭐</span>
+<span onclick="findStar(this)">⭐</span>
+
+</div>
+
+
+<p id="counter">
+Stars found: 0/3
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- FINAL SCREEN -->
+
+<div class="screen" id="finalScreen">
+
+
+<div class="final">
+
+<h1>
+You did it! 🎁
+</h1>
+
+
+<p>
+May your life be filled with happiness,
+love and beautiful moments.
+</p>
+
+
+<h2>
+With love ❤️
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
