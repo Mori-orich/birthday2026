@@ -1,29 +1,95 @@
-let starsFound = 0;
+let heartAttempts = 0;
+let letterStarted = false;
 
 
-// PASSWORD
+// ----------------
+// HEART GAME
+// ----------------
 
-function checkPassword(){
-
-    const password = document
-    .getElementById("password")
-    .value
-    .toLowerCase()
-    .trim();
+const heart = document.getElementById("heart");
 
 
-    if(password === "bubu dudu"){
+heart.addEventListener("mouseenter", () => {
 
-        showScreen("envelopeScreen");
+
+    if (heartAttempts < 2) {
+
+
+        heartAttempts++;
+
+
+        const x = Math.random() * 250 - 125;
+        const y = Math.random() * 200 - 100;
+
+
+        heart.style.transform =
+        `translate(${x}px, ${y}px) scale(1.1)`;
+
+
+        document.getElementById("heartText").innerHTML =
+        "Almost! Catch it ❤️";
+
 
     } else {
 
-        document
-        .getElementById("error")
-        .innerHTML =
-        "Wrong code 💔 Try again";
+
+        heart.style.transform =
+        "scale(1.3)";
+
+
+        document.getElementById("heartText").innerHTML =
+        "You caught my heart! 💕";
+
+
+        heart.onclick = () => {
+
+
+            nextScene("codeScene");
+
+
+        };
+
 
     }
+
+
+});
+
+
+
+
+
+// ----------------
+// DATE CODE
+// ----------------
+
+
+function checkDate(){
+
+
+    let answer =
+    document.getElementById("dateInput")
+    .value
+    .trim();
+
+
+
+    if(answer === "09.08"){
+
+
+        nextScene("storyScene");
+
+
+    } else {
+
+
+        document.getElementById("codeError")
+        .innerHTML =
+        "Not quite... try again 💭";
+
+
+    }
+
 
 }
 
@@ -31,118 +97,151 @@ function checkPassword(){
 
 
 
-// SCREEN CHANGE
 
-function showScreen(id){
+
+// ----------------
+// SCENE CHANGE
+// ----------------
+
+
+function nextScene(id){
+
 
     document
-    .querySelectorAll(".screen")
-    .forEach(screen => {
+    .querySelectorAll(".scene")
+    .forEach(scene=>{
 
-        screen.classList.remove("active");
+        scene.classList.remove("active");
 
     });
+
 
 
     document
     .getElementById(id)
     .classList.add("active");
 
+
+
 }
 
 
 
 
 
-// OPEN LETTER
-
-function openLetter(){
-
-    showScreen("letterScreen");
 
 
-    const message =
-    "Today is a special day because someone wonderful was born. I hope your life is full of smiles, dreams, adventures and beautiful memories ❤️";
+// ----------------
+// CAKE
+// ----------------
 
 
-    let i = 0;
-
-    const text =
-    document.getElementById("text");
+function blowCandles(){
 
 
-    text.innerHTML="";
+    const cake =
+    document.querySelector(".cake");
 
 
-    const typing =
-    setInterval(()=>{
+    cake.style.transform =
+    "scale(.8)";
 
 
-        text.innerHTML += message[i];
+    cake.style.opacity =
+    "0.5";
+
+
+
+    setTimeout(()=>{
+
+
+        nextScene("letterScene");
+
+
+        startLetter();
+
+
+    },1200);
+
+
+
+}
+
+
+
+
+
+
+// ----------------
+// PERSONAL LETTER
+// ----------------
+
+
+function startLetter(){
+
+
+    if(letterStarted) return;
+
+
+    letterStarted=true;
+
+
+
+    const text = `
+
+Dear you ❤️
+
+
+I made this little surprise because I wanted to give you something special.
+
+Even though we are far away from each other, I hope this little journey can bring you a smile.
+
+
+I wish you happiness, good moments, dreams that come true and many beautiful memories.
+
+
+Thank you for being such an important person in my life.
+
+
+Happy Birthday 🎂
+
+
+With love ❤️
+
+`;
+
+
+
+let i = 0;
+
+
+const area =
+document.getElementById("letterText");
+
+
+
+function typing(){
+
+
+    if(i < text.length){
+
+
+        area.innerHTML += text[i];
 
 
         i++;
 
 
-        if(i >= message.length){
-
-            clearInterval(typing);
-
-        }
-
-
-    },45);
-
-}
-
-
-
-
-// GO TO QUEST
-
-function nextQuest(){
-
-    showScreen("questScreen");
-
-}
-
-
-
-
-// FIND STARS
-
-function findStar(element){
-
-
-    if(!element.classList.contains("found")){
-
-
-        element.classList.add("found");
-
-
-        starsFound++;
-
-
-        document
-        .getElementById("counter")
-        .innerHTML =
-        "Stars found: " + starsFound + "/3";
-
-
-
-        if(starsFound === 3){
-
-
-            setTimeout(()=>{
-
-                showScreen("finalScreen");
-
-            },1000);
-
-
-        }
+        setTimeout(typing,35);
 
 
     }
+
+
+}
+
+
+typing();
+
 
 }
