@@ -5,29 +5,24 @@ const heart = document.getElementById("heart");
 
 
 
-// ❤️ HEART GAME
+// ❤️ HEART QUEST
 
 heart.addEventListener("mouseenter", function(){
 
-
     if(heartAttempts < 2){
 
-
         heartAttempts++;
-
 
         let x = Math.random() * 450 - 225;
         let y = Math.random() * 320 - 160;
 
 
-
         heart.style.transform =
-        `translate(${x}px, ${y}px) scale(1.2)`;
+        `translate(${x}px, ${y}px) scale(1.25)`;
 
 
         document.getElementById("heartMessage").innerHTML =
         "Almost... catch me ❤️";
-
 
 
     } else {
@@ -41,21 +36,16 @@ heart.addEventListener("mouseenter", function(){
         "You caught my heart! 💕";
 
 
-
         heart.onclick = function(){
-
 
             createHearts();
 
-
             next("codeScene");
-
 
         };
 
 
     }
-
 
 });
 
@@ -65,7 +55,8 @@ heart.addEventListener("mouseenter", function(){
 
 
 
-// 🌸 CHANGE SCENE
+
+// 🌸 SCENE CHANGE
 
 
 function next(id){
@@ -75,16 +66,13 @@ function next(id){
     .querySelectorAll(".scene")
     .forEach(scene=>{
 
-
         scene.classList.remove("active");
-
 
     });
 
 
 
     setTimeout(()=>{
-
 
         document
         .getElementById(id)
@@ -95,6 +83,9 @@ function next(id){
 
 
 
+    createHearts();
+
+
 }
 
 
@@ -104,14 +95,13 @@ function next(id){
 
 
 
-// 🔐 SECRET CODE
+// 🔐 CODE
 
 
 function checkCode(){
 
 
     let code =
-
     document
     .getElementById("codeInput")
     .value
@@ -122,11 +112,7 @@ function checkCode(){
     if(code === "0908"){
 
 
-        createHearts();
-
-
         next("bubuScene");
-
 
 
     } else {
@@ -135,8 +121,7 @@ function checkCode(){
         document
         .getElementById("error")
         .innerHTML =
-
-        "Try again 💭";
+        "Wrong code 💭 Try again";
 
 
     }
@@ -151,38 +136,56 @@ function checkCode(){
 
 
 
-// ❤️ HEART EFFECT
+// 🗝️ QUEST WRONG ANSWER
+
+
+function wrongDoor(){
+
+
+    document
+    .getElementById("questText")
+    .innerHTML =
+
+    "Hmm... this door is sleeping 😴 Try another one ❤️";
+
+
+}
+
+
+
+
+
+
+
+
+
+// ❤️ FLOATING HEARTS
 
 
 function createHearts(){
 
 
-    for(let i=0;i<35;i++){
+    for(let i=0;i<25;i++){
 
 
         let h =
         document.createElement("div");
 
 
-
         h.className =
         "floating-heart";
-
 
 
         h.innerHTML =
         "❤️";
 
 
-
         h.style.left =
         Math.random()*100+"vw";
 
 
-
         h.style.fontSize =
-        (20+Math.random()*35)+"px";
-
+        (20+Math.random()*30)+"px";
 
 
         h.style.animationDuration =
@@ -196,9 +199,7 @@ function createHearts(){
 
         setTimeout(()=>{
 
-
             h.remove();
-
 
         },6000);
 
@@ -236,7 +237,7 @@ function blowCake(){
 
 
     cake.style.opacity =
-    ".4";
+    "0.3";
 
 
 
@@ -253,12 +254,12 @@ function blowCake(){
         startLetter();
 
 
-
     },1500);
 
 
 
 }
+
 
 
 
@@ -283,22 +284,25 @@ function startLetter(){
     let text = `Dear you ❤️
 
 
-The little adventure is over, but the most important part is here.
+Happy Birthday!
 
 
-I created this birthday surprise because I wanted to give you something special and personal.
+I created this little adventure because I wanted to give you something more than just a simple message.
 
 
-Even though we are far away, I hope this little gift brings you a smile.
+I wanted you to smile, play a little game, find surprises and feel how special you are.
 
 
-I wish you happiness, unforgettable moments, dreams that come true and many beautiful days ahead.
+Even if we are far away, I hope you always remember that there are people who care about you and wish you the best.
 
 
-Thank you for being such an important person in my life.
+May your days be filled with happiness, warm moments, laughter and dreams that come true.
 
 
-Happy Birthday 🎂
+Thank you for being an important person in my life.
+
+
+Have the most wonderful birthday 🎂
 
 
 With love ❤️`;
@@ -313,10 +317,10 @@ With love ❤️`;
 
 
 
-    function write(){
+    function typing(){
 
 
-        if(i<text.length){
+        if(i < text.length){
 
 
             box.innerHTML += text[i];
@@ -325,7 +329,7 @@ With love ❤️`;
             i++;
 
 
-            setTimeout(write,40);
+            setTimeout(typing,35);
 
 
         }
@@ -335,7 +339,7 @@ With love ❤️`;
 
 
 
-    write();
+    typing();
 
 
 }
