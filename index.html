@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Little Birthday Surprise ❤️</title>
+<title>Birthday Surprise ❤️</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -18,23 +18,29 @@
 <body>
 
 
-<!-- HEART GAME -->
+<div class="stars"></div>
+
+
+<!-- HEART -->
 
 <section class="scene active" id="heartScene">
 
-    <h1>Catch my heart ❤️</h1>
+<h1>Catch my heart ❤️</h1>
 
-    <p>
-    I have a little surprise for you...
-    </p>
+<p>
+I have a little surprise for you...
+</p>
 
-    <div id="heart">
-        ❤️
-    </div>
 
-    <p id="heartText">
-    Try to catch it!
-    </p>
+<div id="heart">
+❤️
+</div>
+
+
+<p id="heartText">
+Try to catch it!
+</p>
+
 
 </section>
 
@@ -42,41 +48,40 @@
 
 
 
-<!-- DATE CODE -->
+<!-- CODE -->
 
 
 <section class="scene" id="codeScene">
 
-
 <div class="card">
 
+<img src="images/dudu.gif" class="image">
+
+
 <h1>
-A secret code 🔐
+Secret code 🔐
 </h1>
 
 
 <p>
 You caught my heart!
 <br>
-Now unlock the next surprise.
+Now enter the birthday code.
 </p>
 
 
-<input 
-id="dateInput"
-placeholder="DD.MM">
+<input id="code" placeholder="DD.MM">
 
 
-<button onclick="checkDate()">
+<button onclick="checkCode()">
 Unlock ✨
 </button>
 
 
-<p id="codeError"></p>
+<p id="error"></p>
 
 
 </div>
-
 
 </section>
 
@@ -86,29 +91,59 @@ Unlock ✨
 
 
 
-<!-- STORY -->
+<!-- BUBU DUDU -->
 
 
 <section class="scene" id="storyScene">
 
-
 <div class="card">
 
-<img src="images/bubu-dudu.png" class="picture">
+<img src="images/dudububu.gif" class="image">
 
 
 <h1>
-A little journey begins 🌙
+A little adventure begins 🌙
 </h1>
 
 
 <p>
-A special surprise is waiting for you...
+A special surprise was created just for you.
 </p>
 
 
-<button onclick="nextScene('cakeScene')">
-Continue 🎁
+<button onclick="showScene('giftScene')">
+Continue
+</button>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<!-- GIFT -->
+
+
+<section class="scene" id="giftScene">
+
+
+<div class="card">
+
+<img src="images/dudububu2.gif" class="image">
+
+
+<h1>
+A little gift 🎁
+</h1>
+
+
+<button onclick="showScene('catScene')">
+Next
 </button>
 
 
@@ -116,6 +151,92 @@ Continue 🎁
 
 
 </section>
+
+
+
+
+
+
+
+
+<!-- CAT -->
+
+
+<section class="scene" id="catScene">
+
+
+<div class="card">
+
+
+<img src="images/cat.jpg" class="image">
+
+
+<h1>
+A little smile 😸
+</h1>
+
+
+<p>
+Keep smiling every day.
+</p>
+
+
+<button onclick="showScene('minionScene')">
+Next
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- MINIONS -->
+
+
+<section class="scene" id="minionScene">
+
+
+<div class="card">
+
+
+<img src="images/minions.jpg" class="image">
+
+
+<h1>
+PAPOOOIII 🍌🍌🍌
+</h1>
+
+
+<h2>
+STOPAAAH 🛑
+</h2>
+
+
+<p>
+Banana surprise 😂
+</p>
+
+
+<button onclick="showScene('cakeScene')">
+Continue
+</button>
+
+
+</div>
+
+
+</section>
+
+
 
 
 
@@ -145,7 +266,7 @@ Blow the candles 🕯
 </p>
 
 
-<button onclick="blowCandles()">
+<button onclick="blowCake()">
 Blow 💨
 </button>
 
@@ -154,6 +275,7 @@ Blow 💨
 
 
 </section>
+
 
 
 
@@ -171,21 +293,21 @@ Blow 💨
 <div class="letter">
 
 
+<img src="images/dudububu3.gif" class="image">
+
+
 <h1>
-For you ❤️
+A letter for you ❤️
 </h1>
 
 
-<p id="letterText">
-
-</p>
+<p id="letter"></p>
 
 
 </div>
 
 
 </section>
-
 
 
 
