@@ -571,14 +571,12 @@ Even though we are far away, I want you to know that you are a very special pers
 
 I wish you happiness, success, amazing memories and many reasons to smile.
 
-Thank you for all the conversations, jokes and unforgettable moments.
-
-Stay the amazing person you are.
+Thank you for all the time, jokes and unforgettable moments.
 
 Have the best birthday ever ❤️
 
 With love,
-Maria ❤️`;
+Bubu ❤️`;
 
 
 
