@@ -1,7 +1,5 @@
 * {
-
-    box-sizing:border-box;
-
+    box-sizing: border-box;
 }
 
 
@@ -13,7 +11,7 @@ body {
 
     overflow:hidden;
 
-    font-family:'Poppins',sans-serif;
+    font-family:'Poppins', sans-serif;
 
     font-weight:600;
 
@@ -23,15 +21,14 @@ body {
 
     align-items:center;
 
-    background:#ffe3ed;
+    background:#ffe1eb;
 
 }
 
 
 
 
-
-/* LIGHT BACKGROUND */
+/* BACKGROUND LIGHT */
 
 
 .background {
@@ -41,8 +38,7 @@ body {
     inset:0;
 
     background:
-
-    linear-gradient(135deg,#ffd9e8,#fff1c9);
+    linear-gradient(135deg,#ffd8e8,#fff0c7);
 
     overflow:hidden;
 
@@ -55,9 +51,9 @@ body {
 
     position:absolute;
 
-    width:800px;
+    width:900px;
 
-    height:800px;
+    height:900px;
 
     border-radius:50%;
 
@@ -71,15 +67,14 @@ body {
     transparent 70%);
 
 
+    top:-350px;
 
-    top:-300px;
-
-    left:-200px;
+    left:-250px;
 
 
     animation:
 
-    lightOne 10s infinite alternate;
+    lightMove 10s infinite alternate;
 
 }
 
@@ -87,16 +82,13 @@ body {
 
 .background::after {
 
-
     content:"";
 
     position:absolute;
 
+    width:700px;
 
-    width:650px;
-
-    height:650px;
-
+    height:700px;
 
     border-radius:50%;
 
@@ -105,21 +97,20 @@ body {
 
     radial-gradient(circle,
 
-    rgba(255,180,210,.45),
+    rgba(255,160,200,.35),
 
     transparent 70%);
 
 
 
-    bottom:-250px;
+    bottom:-300px;
 
-    right:-150px;
+    right:-200px;
 
 
     animation:
 
-    lightTwo 12s infinite alternate;
-
+    lightMove2 12s infinite alternate;
 
 }
 
@@ -127,7 +118,8 @@ body {
 
 
 
-@keyframes lightOne {
+@keyframes lightMove {
+
 
     from {
 
@@ -138,7 +130,7 @@ body {
 
     to {
 
-        transform:translate(350px,250px);
+        transform:translate(400px,250px);
 
     }
 
@@ -146,7 +138,8 @@ body {
 
 
 
-@keyframes lightTwo {
+@keyframes lightMove2 {
+
 
     from {
 
@@ -157,7 +150,7 @@ body {
 
     to {
 
-        transform:translate(-250px,-200px);
+        transform:translate(-300px,-200px);
 
     }
 
@@ -180,7 +173,7 @@ body {
     width:95%;
 
 
-    max-width:700px;
+    max-width:750px;
 
 
     padding:25px;
@@ -205,10 +198,9 @@ body {
 
     transition:
 
-    opacity 1s ease,
+    opacity .9s ease,
 
-    transform 1s cubic-bezier(.2,.8,.2,1);
-
+    transform .9s cubic-bezier(.2,.8,.2,1);
 
 }
 
@@ -216,6 +208,7 @@ body {
 
 
 .scene.active {
+
 
     opacity:1;
 
@@ -239,27 +232,25 @@ body {
 
 
 
+
 /* TEXT */
 
 
 h1 {
 
-
     font-size:44px;
-
 
     font-weight:800;
 
-
-    color:#d95082;
-
+    color:#d85183;
 
 }
 
 
+
 h2 {
 
-    color:#d95082;
+    color:#d85183;
 
     font-weight:800;
 
@@ -284,7 +275,7 @@ p {
 
 
 
-/* CARD */
+/* CARDS */
 
 
 .card {
@@ -295,18 +286,20 @@ p {
     rgba(255,255,255,.9);
 
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:
+
+    blur(18px);
 
 
     border-radius:40px;
 
 
-    padding:40px 35px;
+    padding:40px;
 
 
     box-shadow:
 
-    0 30px 80px rgba(0,0,0,.18);
+    0 30px 90px rgba(0,0,0,.18);
 
 
 }
@@ -324,7 +317,10 @@ p {
 #heart {
 
 
-    font-size:140px;
+    position:relative;
+
+
+    font-size:130px;
 
 
     cursor:pointer;
@@ -333,15 +329,14 @@ p {
     display:inline-block;
 
 
-    transition:
-
-    transform 1.3s cubic-bezier(.25,.8,.25,1);
-
-
     animation:
 
     pulse 1.5s infinite;
 
+
+    transition:
+
+    transform .8s cubic-bezier(.25,.8,.25,1);
 
 }
 
@@ -365,7 +360,8 @@ p {
 
 
 
-/* BUTTON */
+
+/* BUTTONS */
 
 
 button {
@@ -374,7 +370,7 @@ button {
     display:block;
 
 
-    width:80%;
+    width:85%;
 
 
     margin:15px auto;
@@ -383,7 +379,7 @@ button {
     padding:15px 30px;
 
 
-    border:none;
+    border:0;
 
 
     border-radius:35px;
@@ -391,7 +387,7 @@ button {
 
     background:
 
-    linear-gradient(135deg,#ed719a,#d94f82);
+    linear-gradient(135deg,#ed7199,#d94f82);
 
 
     color:white;
@@ -408,14 +404,13 @@ button {
 
     transition:.3s;
 
-
 }
 
 
 
 button:hover {
 
-    transform:scale(1.08);
+    transform:scale(1.07);
 
 }
 
@@ -441,7 +436,7 @@ input {
     border-radius:30px;
 
 
-    border:2px solid #ffc1d7;
+    border:2px solid #ffc2d8;
 
 
     font-size:20px;
@@ -454,7 +449,6 @@ input {
 
 
 }
-
 
 
 
@@ -480,7 +474,6 @@ input {
 
     border-radius:30px;
 
-
 }
 
 
@@ -488,11 +481,10 @@ input {
 .cake {
 
 
-    width:300px;
+    width:320px;
 
 
     border-radius:25px;
-
 
 }
 
@@ -509,13 +501,13 @@ input {
 .letter {
 
 
-    width:100%;
+    width:95%;
 
 
-    max-width:700px;
+    max-width:750px;
 
 
-    max-height:80vh;
+    max-height:85vh;
 
 
     overflow-y:auto;
@@ -523,19 +515,18 @@ input {
 
     background:
 
-
     linear-gradient(#fffdf7,#fff0d5);
 
 
     padding:45px;
 
 
-    border-radius:25px;
+    border-radius:30px;
 
 
     box-shadow:
 
-    0 30px 80px rgba(0,0,0,.25);
+    0 30px 90px rgba(0,0,0,.25);
 
 
 }
@@ -573,7 +564,7 @@ input {
 
 
 
-/* HEART EFFECT */
+/* HEART PARTICLES */
 
 
 .floating-heart {
@@ -592,7 +583,6 @@ input {
 
     flyHeart 5s linear forwards;
 
-
 }
 
 
@@ -608,14 +598,13 @@ input {
 
         scale(.5);
 
+
         opacity:1;
 
     }
 
 
-
     to {
-
 
         transform:
 
@@ -636,7 +625,7 @@ input {
 
 
 
-/* MINIONS */
+/* MINION FUN */
 
 
 #minionScene h1 {
@@ -645,7 +634,6 @@ input {
     animation:
 
     shake .5s infinite;
-
 
 }
 
