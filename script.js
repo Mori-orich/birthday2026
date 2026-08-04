@@ -71,7 +71,8 @@ heart.onclick = function(){
 
 
 
-// 🌸 SCENE SWITCH
+
+// 🌸 SCENE CHANGE
 
 
 function next(id){
@@ -100,7 +101,6 @@ function next(id){
     },250);
 
 
-
 }
 
 
@@ -110,7 +110,8 @@ function next(id){
 
 
 
-// 🔐 SECRET CODE
+
+// 🔐 CODE
 
 
 function checkCode(){
@@ -141,13 +142,14 @@ function checkCode(){
         .getElementById("error")
         .innerHTML =
 
-        "Wrong code 💭";
+        "Wrong code 💭 Try again";
 
 
     }
 
 
 }
+
 
 
 
@@ -232,7 +234,7 @@ function answer(correct){
 
 
 
-// ❤️ HEART EFFECT
+// ❤️ HEART PARTICLES
 
 
 function createHearts(){
@@ -332,7 +334,6 @@ function blowCake(){
     },1500);
 
 
-
 }
 
 
@@ -342,7 +343,8 @@ function blowCake(){
 
 
 
-// 💌 FINAL LETTER
+
+// 💌 LETTER
 
 
 function startLetter(){
@@ -351,35 +353,40 @@ function startLetter(){
     if(letterStarted) return;
 
 
-    letterStarted=true;
+    letterStarted = true;
 
 
 
     let text = `Dear George ❤️
 
 
-Happy Birthday!
+Happy Birthday! 🎂
 
 
-I made this little adventure because I wanted to create something special for you.
+I wanted to create something a little different for you.
+
+Not just a simple birthday message, but a small adventure with surprises, smiles and little moments made especially for you.
 
 
-Not just a simple birthday message, but a small journey with surprises, memories and smiles.
+Even though we are far away, I want you to know that you are a very special person to me.
+
+I hope this little gift reminds you that someone is thinking about you and wishing you happiness.
 
 
-Even if we are far away, I hope you feel how important and appreciated you are.
+May your days be full of laughter, success, amazing memories and moments that make you smile.
 
 
-I wish you happiness, amazing moments, success in everything you do and many reasons to smile.
+Never stop being the wonderful person you are.
 
 
-Thank you for being yourself.
+Thank you for all the conversations, jokes and unforgettable moments.
 
 
-Have the best birthday ever 🎂
+I hope your birthday is as amazing as you deserve ❤️
 
 
-With love ❤️`;
+With love,
+Maria ❤️`;
 
 
 
@@ -387,11 +394,11 @@ With love ❤️`;
     document.getElementById("letterText");
 
 
-    let i=0;
+    let i = 0;
 
 
 
-    function type(){
+    function typing(){
 
 
         if(i < text.length){
@@ -403,7 +410,7 @@ With love ❤️`;
             i++;
 
 
-            setTimeout(type,35);
+            setTimeout(typing,35);
 
 
         }
@@ -412,7 +419,7 @@ With love ❤️`;
     }
 
 
-    type();
+    typing();
 
 
 }
