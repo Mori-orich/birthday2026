@@ -22,8 +22,7 @@
 
 
 
-
-<!-- HEART -->
+<!-- HEART GAME -->
 
 <section class="scene active" id="heartScene">
 
@@ -57,12 +56,11 @@ Find me 3 times!
 
 
 
-<!-- CODE -->
+<!-- SECRET CODE -->
 
 <section class="scene" id="codeScene">
 
 <div class="card">
-
 
 <img src="dudu.gif" class="picture">
 
@@ -114,7 +112,6 @@ Unlock ✨
 <section class="scene" id="quizIntro">
 
 <div class="card">
-
 
 <img src="dudububu.gif" class="picture">
 
@@ -313,15 +310,7 @@ Continue
 </div>
 
 </section>
-
-
-
-
-
-
-
-
-<!-- CAT -->
+<!-- CAT QUEST -->
 
 <section class="scene" id="catScene">
 
@@ -338,22 +327,32 @@ A little friend found you 🐾
 
 <p>
 
-A little cat appeared with a special message...
+A little cat has a secret for you...
 
 <br><br>
 
-Sometimes the smallest moments become the warmest memories.
-
-<br><br>
-
-But this is not the end of the adventure ❤️
+But first, find 3 hidden paw prints!
 
 </p>
 
 
-<button onclick="next('catMessageScene')">
-Continue
-</button>
+<div class="paws">
+
+
+<span class="paw" onclick="findPaw(this)">🐾</span>
+
+<span class="paw" onclick="findPaw(this)">🐾</span>
+
+<span class="paw" onclick="findPaw(this)">🐾</span>
+
+
+</div>
+
+
+<p id="pawText">
+Paws found: 0/3
+</p>
+
 
 
 </div>
@@ -378,7 +377,7 @@ Continue
 
 
 <h1>
-A secret message ✉️
+Secret message ✉️
 </h1>
 
 
@@ -392,7 +391,7 @@ The little friend left something behind...
 
 <br><br>
 
-Someone else is coming to celebrate with you 🎉
+The next surprise is coming...
 
 </p>
 
@@ -417,10 +416,17 @@ Open surprise 🍌
 
 <section class="scene" id="minionScene">
 
-<div class="card">
+<div class="card minionCard">
 
 
-<img src="minions.gif" class="picture">
+<div id="bananaRain"></div>
+
+
+<img 
+src="minions.gif" 
+class="picture minionImage"
+onerror="this.src='minions.jpg'"
+>
 
 
 <h1>
@@ -435,11 +441,15 @@ STOPAAAH 🛑
 
 <p>
 
-The birthday team has arrived! 🚨
+Emergency birthday team has arrived! 🚨
 
 <br><br>
 
 The minions came to celebrate your special day!
+
+<br>
+
+They brought chaos, bananas and happiness 🎉
 
 </p>
 
@@ -500,6 +510,7 @@ Blow 💨
 
 <section class="scene" id="letterScene">
 
+
 <div class="letter">
 
 
@@ -515,6 +526,7 @@ A letter for you ❤️
 
 
 </div>
+
 
 </section>
 
