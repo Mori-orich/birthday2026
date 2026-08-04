@@ -1,69 +1,78 @@
-let heartClicks = 0;
+let love = 0;
+
+let heartsFound = 0;
 
 let currentQuestion = 1;
 
 let pawsFound = 0;
 
+let bananasCaught = 0;
+
 let letterStarted = false;
 
 
 
-// ❤️ HEART GAME
-
-
-const heart = document.getElementById("heart");
-
-
-function moveHeart(){
-
-    let x = Math.random() * 450 - 225;
-
-    let y = Math.random() * 250 - 125;
-
-
-    heart.style.transform =
-    `translate(${x}px, ${y}px) scale(1.2)`;
-
-}
 
 
 
-heart.onclick = function(){
+// ❤️ LOVE VESSEL
 
 
-    heartClicks++;
+document.getElementById("heartButton").onclick = function(){
 
 
-    createHearts();
+    if(love < 100){
+
+
+        love += 10;
+
+
+        document.getElementById("loveFill").style.height =
+        love + "%";
+
+
+        document.getElementById("lovePercent").innerHTML =
+        love + "%";
+
+
+        document.getElementById("loveText").innerHTML =
+        "Love is growing ❤️";
+
+
+        createHearts();
+
+
+        this.style.transform =
+        "scale(1.25)";
+
+
+        setTimeout(()=>{
+
+            this.style.transform="scale(1)";
+
+        },200);
 
 
 
-    if(heartClicks < 3){
+    }
 
 
-        document.getElementById("heartText").innerHTML =
 
-        `You found me ${heartClicks}/3 ❤️`;
-
-
-        moveHeart();
+    if(love === 100){
 
 
-    } else {
+        document.getElementById("loveText").innerHTML =
 
-
-        document.getElementById("heartText").innerHTML =
-
-        "You caught my heart! 💕";
+        "Love vessel is full! 💕";
 
 
         setTimeout(()=>{
 
 
-            next("codeScene");
+            next("hiddenHeartScene");
 
 
-        },800);
+        },1200);
 
 
     }
@@ -79,7 +88,7 @@ heart.onclick = function(){
 
 
 
-// 🌸 CHANGE SCENE
+// CHANGE SCENE
 
 
 function next(id){
@@ -88,7 +97,9 @@ function next(id){
     document.querySelectorAll(".scene")
     .forEach(scene=>{
 
+
         scene.classList.remove("active");
+
 
     });
 
@@ -97,17 +108,19 @@ function next(id){
     setTimeout(()=>{
 
 
-        document
-        .getElementById(id)
+        document.getElementById(id)
         .classList.add("active");
 
 
 
         if(id==="minionScene"){
 
+
             startBananas();
 
+
         }
+
 
 
     },300);
@@ -123,33 +136,42 @@ function next(id){
 
 
 
-// 🔐 CODE
+// FLOAT HEARTS
 
 
-function checkCode(){
+function createHearts(){
 
 
-    let code =
-    document.getElementById("codeInput")
-    .value
-    .trim();
+    for(let i=0;i<10;i++){
+
+
+        let h=document.createElement("div");
+
+
+        h.className="floating-heart";
+
+
+        h.innerHTML="❤️";
+
+
+        h.style.left=Math.random()*100+"vw";
+
+
+        h.style.fontSize =
+        20+Math.random()*30+"px";
+
+
+        document.body.appendChild(h);
 
 
 
-    if(code==="0908"){
+        setTimeout(()=>{
 
 
-        createHearts();
-
-        next("quizIntro");
+            h.remove();
 
 
-    } else {
-
-
-        document.getElementById("error").innerHTML =
-
-        "Wrong code 💭";
+        },4000);
 
 
     }
@@ -165,15 +187,111 @@ function checkCode(){
 
 
 
-// 🕵️ QUIZ
+// HIDDEN HEARTS
+
+
+document.querySelectorAll(".hiddenHeart")
+.forEach(item=>{
+
+
+item.onclick=function(){
+
+
+if(this.dataset.done) return;
+
+
+this.dataset.done=true;
+
+
+this.style.opacity=".2";
+
+
+heartsFound++;
+
+
+document.getElementById("hiddenText")
+.innerHTML =
+
+`Hearts found: ${heartsFound}/5`;
+
+
+
+if(heartsFound===5){
+
+
+setTimeout(()=>{
+
+
+next("codeScene");
+
+
+},1000);
+
+
+}
+
+
+}
+
+
+});
+
+
+
+
+
+
+
+
+
+// CODE
+
+
+function checkCode(){
+
+
+let code =
+document.getElementById("codeInput")
+.value.trim();
+
+
+
+if(code==="0908"){
+
+
+next("quizIntro");
+
+
+}
+
+else {
+
+
+document.getElementById("error")
+.innerHTML="Wrong code 💭";
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+// QUIZ
 
 
 function startQuiz(){
 
-    next("question1");
+next("question1");
 
 }
-
 
 
 
@@ -181,48 +299,45 @@ function startQuiz(){
 function answer(correct){
 
 
-    if(correct){
+if(!correct){
 
 
-        if(currentQuestion===1){
+alert("Try again 😄");
+
+return;
 
 
-            currentQuestion=2;
-
-            next("question2");
-
-
-        }
-
-        else if(currentQuestion===2){
-
-
-            currentQuestion=3;
-
-            next("question3");
-
-
-        }
-
-        else {
-
-
-            createHearts();
-
-            next("successScene");
-
-
-        }
+}
 
 
 
-    } else {
+if(currentQuestion===1){
 
 
-        alert("Try again 😄");
+currentQuestion=2;
+
+next("question2");
 
 
-    }
+}
+
+else if(currentQuestion===2){
+
+
+currentQuestion=3;
+
+next("question3");
+
+
+}
+
+else {
+
+
+next("catScene");
+
+
+}
 
 
 }
@@ -235,46 +350,49 @@ function answer(correct){
 
 
 
-// 🐾 PAW QUEST
+// 🐾 PAWS
 
 
-function findPaw(element){
+function findPaw(paw){
 
 
-    if(element.classList.contains("found")) return;
+if(paw.dataset.done)return;
 
 
-
-    element.classList.add("found");
-
-
-    pawsFound++;
+paw.dataset.done=true;
 
 
+paw.style.opacity=".3";
 
-    document.getElementById("pawText").innerHTML =
 
-    `Paws found: ${pawsFound}/3`;
+pawsFound++;
 
 
 
-    createHearts();
+document.getElementById("pawText")
+.innerHTML =
+
+`Paws found: ${pawsFound}/3`;
 
 
 
-    if(pawsFound===3){
+createHearts();
 
 
-        setTimeout(()=>{
+
+if(pawsFound===3){
 
 
-            next("catMessageScene");
+setTimeout(()=>{
 
 
-        },1000);
+next("catMessageScene");
 
 
-    }
+},1000);
+
+
+}
 
 
 }
@@ -287,112 +405,93 @@ function findPaw(element){
 
 
 
-// ❤️ PARTICLES
-
-
-function createHearts(){
-
-
-    for(let i=0;i<15;i++){
-
-
-        let heart =
-        document.createElement("div");
-
-
-        heart.className =
-        "floating-heart";
-
-
-        heart.innerHTML =
-        "❤️";
-
-
-        heart.style.left =
-        Math.random()*100+"vw";
-
-
-        heart.style.fontSize =
-        20+Math.random()*30+"px";
-
-
-
-        document.body.appendChild(heart);
-
-
-
-        setTimeout(()=>{
-
-
-            heart.remove();
-
-
-        },5000);
-
-
-    }
-
-
-}
-
-
-
-
-
-
-
-
-
-// 🍌 MINION BANANAS
+// 🍌 BANANAS
 
 
 function startBananas(){
 
 
-    let box =
-    document.getElementById("bananaRain");
+let box =
+document.getElementById("bananaGame");
 
 
 
-    for(let i=0;i<20;i++){
+let timer =
+setInterval(()=>{
 
 
-        let banana =
-        document.createElement("div");
+if(bananasCaught>=5){
 
 
+clearInterval(timer);
 
-        banana.className =
-        "banana";
+return;
 
-
-        banana.innerHTML =
-        "🍌";
-
-
-        banana.style.left =
-        Math.random()*100+"%";
-
-
-        banana.style.animationDelay =
-        Math.random()*3+"s";
+}
 
 
 
-        box.appendChild(banana);
+let banana =
+document.createElement("div");
+
+
+banana.className="banana";
+
+
+banana.innerHTML="🍌";
+
+
+banana.style.left =
+Math.random()*90+"%";
 
 
 
-        setTimeout(()=>{
+banana.onclick=function(){
 
 
-            banana.remove();
+bananasCaught++;
 
 
-        },6000);
+this.remove();
 
 
-    }
+
+document.getElementById("bananaText")
+.innerHTML =
+
+`Bananas caught: ${bananasCaught}/5`;
+
+
+
+if(bananasCaught===5){
+
+
+document.getElementById("bananaContinue")
+.disabled=false;
+
+
+}
+
+
+};
+
+
+
+box.appendChild(banana);
+
+
+
+setTimeout(()=>{
+
+
+banana.remove();
+
+
+},4000);
+
+
+
+},700);
 
 
 }
@@ -411,34 +510,31 @@ function startBananas(){
 function blowCake(){
 
 
-    let cake =
-    document.querySelector(".cake");
+let cake=document.querySelector(".cake");
+
+
+cake.style.transform=
+"scale(.7)";
+
+
+cake.style.opacity=".4";
+
+
+createHearts();
 
 
 
-    cake.style.transform =
-    "scale(.7) rotate(10deg)";
+setTimeout(()=>{
 
 
-    cake.style.opacity =
-    ".4";
+next("letterScene");
 
 
-
-    createHearts();
-
+startLetter();
 
 
-    setTimeout(()=>{
+},1200);
 
-
-        next("letterScene");
-
-
-        startLetter();
-
-
-    },1500);
 
 
 }
@@ -457,22 +553,22 @@ function blowCake(){
 function startLetter(){
 
 
-    if(letterStarted) return;
+if(letterStarted)return;
 
 
-    letterStarted=true;
+letterStarted=true;
 
 
 
-    let text = `Dear George ❤️
+let text=`Dear George ❤️
 
 Happy Birthday! 🎂
 
-I wanted to create something special for you — not just a simple message, but a little adventure made with care, surprises and smiles.
+I wanted to create something special for you — a little adventure full of surprises, smiles and warm moments.
 
-Even though we are far away, I want you to know that you are a very special person to me. I hope this little gift reminds you that someone is thinking about you.
+Even though we are far away, I want you to know that you are a very special person to me.
 
-I wish you happiness, success, beautiful memories and many reasons to smile.
+I wish you happiness, success, amazing memories and many reasons to smile.
 
 Thank you for all the conversations, jokes and unforgettable moments.
 
@@ -485,36 +581,36 @@ Maria ❤️`;
 
 
 
-    let box =
-    document.getElementById("letterText");
+let box=document.getElementById("letterText");
 
 
-    let i=0;
+let i=0;
 
 
 
-    function type(){
+function typing(){
 
 
-        if(i<text.length){
+if(i<text.length){
 
 
-            box.innerHTML += text[i];
+box.innerHTML+=text[i];
 
 
-            i++;
+i++;
 
 
-            setTimeout(type,30);
+setTimeout(typing,30);
 
 
-        }
+}
 
 
-    }
+}
 
 
-    type();
+
+typing();
 
 
 }
