@@ -23,7 +23,10 @@
 
 
 
-<!-- LOVE VESSEL GAME -->
+
+
+<!-- LOVE VESSEL -->
+
 
 <section class="scene active" id="loveScene">
 
@@ -53,11 +56,7 @@ Click the heart and fill it with love!
 
 <div class="vessel">
 
-
-<div id="loveFill">
-
-</div>
-
+<div id="loveFill"></div>
 
 </div>
 
@@ -89,6 +88,56 @@ Love level: empty
 
 
 
+
+<!-- CAT LOVE REWARD -->
+
+
+<section class="scene" id="catLoveScene">
+
+
+<div class="card">
+
+
+<img src="cat.jpg" class="picture">
+
+
+<h1>
+Oh, you filled it completely! ❤️
+</h1>
+
+
+<p>
+
+There is so much love inside you!
+
+<br><br>
+
+The little friend is happy to see it 🐱
+
+</p>
+
+
+
+<button onclick="next('hiddenHeartScene')">
+
+Continue
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
 <!-- HIDDEN HEARTS -->
 
 
@@ -104,32 +153,53 @@ Find the hidden hearts ❤️
 
 
 <p>
+
 Someone left little hearts around...
+
+<br>
 
 Find all 5!
 
 </p>
 
 
+
 <div id="hiddenArea">
 
 
-<span class="hiddenHeart">❤️</span>
+<span class="hiddenHeart">
+❤️
+</span>
 
-<span class="hiddenHeart">❤️</span>
 
-<span class="hiddenHeart">❤️</span>
+<span class="hiddenHeart">
+❤️
+</span>
 
-<span class="hiddenHeart">❤️</span>
 
-<span class="hiddenHeart">❤️</span>
+<span class="hiddenHeart">
+❤️
+</span>
+
+
+<span class="hiddenHeart">
+❤️
+</span>
+
+
+<span class="hiddenHeart">
+❤️
+</span>
 
 
 </div>
 
 
+
 <p id="hiddenText">
+
 Hearts found: 0/5
+
 </p>
 
 
@@ -140,7 +210,9 @@ Hearts found: 0/5
 </section>
 <!-- SECRET CODE -->
 
+
 <section class="scene" id="codeScene">
+
 
 <div class="card">
 
@@ -181,6 +253,7 @@ Unlock ✨
 
 </div>
 
+
 </section>
 
 
@@ -190,33 +263,38 @@ Unlock ✨
 
 
 
-<!-- GEORGE TEST -->
+<!-- DUDU REWARD -->
 
-<section class="scene" id="quizIntro">
+
+<section class="scene" id="duduReward">
 
 
 <div class="card">
 
 
-<img src="dudububu.gif" class="picture">
+<img src="dudu2.gif" class="picture">
 
 
 <h1>
-Wait... 🤔
+You are a clever one, I knew it! 😎
 </h1>
 
 
 <p>
 
-Before continuing...
+Of course you passed!
 
-I need to make sure that you are really George.
+<br><br>
+
+Now let's see if you really are George...
 
 </p>
 
 
 <button onclick="startQuiz()">
-Start test
+
+Continue
+
 </button>
 
 
@@ -234,6 +312,7 @@ Start test
 
 <!-- QUESTION 1 -->
 
+
 <section class="scene" id="question1">
 
 
@@ -248,6 +327,7 @@ Question 1 🎮
 <p>
 What is your favorite game?
 </p>
+
 
 
 <button onclick="answer(false)">
@@ -279,6 +359,7 @@ C) Escape from Tarkov
 
 <!-- QUESTION 2 -->
 
+
 <section class="scene" id="question2">
 
 
@@ -293,6 +374,7 @@ Question 2 🐾
 <p>
 What is the name of your favorite pet?
 </p>
+
 
 
 <button onclick="answer(true)">
@@ -324,6 +406,7 @@ C) Maria
 
 <!-- QUESTION 3 -->
 
+
 <section class="scene" id="question3">
 
 
@@ -336,8 +419,11 @@ Question 3 💻
 
 
 <p>
+
 What is your favorite activity besides computer games?
+
 </p>
+
 
 
 <button onclick="answer(false)">
@@ -367,7 +453,7 @@ C) Ragebaiting Maria
 
 
 
-<!-- CAT QUEST -->
+<!-- CAT PAWS QUEST -->
 
 
 <section class="scene" id="catScene">
@@ -385,9 +471,12 @@ The cat has a secret 🐾
 
 
 <p>
+
 The little friend left clues around...
 
-Find all hidden paw prints!
+<br>
+
+Find all hidden paws!
 
 </p>
 
@@ -418,7 +507,55 @@ Paws found: 0/3
 
 
 </section>
+<!-- CAT COMPLETE -->
+
+
+<section class="scene" id="catReward">
+
+
+<div class="card">
+
+
+<img src="cat.gif" class="picture">
+
+
+<h1>
+You are a real little cat! 🐾
+</h1>
+
+
+<p>
+
+You collected all the paws!
+
+<br><br>
+
+The secret cat mission is completed ❤️
+
+</p>
+
+
+<button onclick="next('catMessageScene')">
+
+Continue
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
 <!-- CAT MESSAGE -->
+
 
 <section class="scene" id="catMessageScene">
 
@@ -454,7 +591,9 @@ But someone else wants to join the party...
 
 
 <button onclick="next('minionScene')">
+
 Open surprise 🍌
+
 </button>
 
 
@@ -470,7 +609,7 @@ Open surprise 🍌
 
 
 
-<!-- MINIONS BANANA GAME -->
+<!-- MINIONS -->
 
 
 <section class="scene" id="minionScene">
@@ -480,7 +619,7 @@ Open surprise 🍌
 
 
 <img 
-src="minions.gif" 
+src="minions.gif"
 class="picture"
 onerror="this.src='minions.jpg'"
 >
@@ -500,7 +639,7 @@ STOPAAAH 🛑
 
 The minions arrived!
 
-<br>
+<br><br>
 
 Catch 5 bananas to complete the mission!
 
@@ -508,21 +647,67 @@ Catch 5 bananas to complete the mission!
 
 
 
-<div id="bananaGame">
-
-</div>
+<div id="bananaGame"></div>
 
 
 
 <p id="bananaText">
+
 Bananas caught: 0/5
+
 </p>
 
 
 
-<button id="bananaContinue" onclick="next('cakeScene')" disabled>
+<button id="bananaContinue" onclick="next('bubuScene')" disabled>
 
 Continue
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- BUBU REWARD -->
+
+
+<section class="scene" id="bubuScene">
+
+
+<div class="card">
+
+
+<img src="bubu2.gif" class="picture">
+
+
+<h1>
+
+Enough games, it's time for something sweet! 🍰
+
+</h1>
+
+
+<p>
+
+The final surprise is waiting...
+
+</p>
+
+
+
+<button onclick="next('cakeScene')">
+
+Let's go!
 
 </button>
 
@@ -559,6 +744,7 @@ Make a wish ✨
 <p>
 Blow the candle 🕯
 </p>
+
 
 
 <button onclick="blowCake()">
