@@ -1,25 +1,25 @@
-let heartAttempts = 0;
+let heartTries = 0;
 let letterStarted = false;
 
 
-// ----------------
+// ---------------------
 // HEART GAME
-// ----------------
+// ---------------------
 
 const heart = document.getElementById("heart");
 
 
-heart.addEventListener("mouseenter", () => {
+heart.addEventListener("mouseenter", function(){
 
 
-    if (heartAttempts < 2) {
+    if(heartTries < 2){
 
 
-        heartAttempts++;
+        heartTries++;
 
 
-        const x = Math.random() * 250 - 125;
-        const y = Math.random() * 200 - 100;
+        let x = Math.random() * 250 - 125;
+        let y = Math.random() * 200 - 100;
 
 
         heart.style.transform =
@@ -27,7 +27,7 @@ heart.addEventListener("mouseenter", () => {
 
 
         document.getElementById("heartText").innerHTML =
-        "Almost! Catch it ❤️";
+        "Almost! Try again ❤️";
 
 
     } else {
@@ -41,10 +41,10 @@ heart.addEventListener("mouseenter", () => {
         "You caught my heart! 💕";
 
 
-        heart.onclick = () => {
+        heart.onclick = function(){
 
 
-            nextScene("codeScene");
+            showScene("codeScene");
 
 
         };
@@ -59,57 +59,18 @@ heart.addEventListener("mouseenter", () => {
 
 
 
-// ----------------
-// DATE CODE
-// ----------------
+
+// ---------------------
+// CHANGE SCENES
+// ---------------------
 
 
-function checkDate(){
-
-
-    let answer =
-    document.getElementById("dateInput")
-    .value
-    .trim();
-
-
-
-    if(answer === "09.08"){
-
-
-        nextScene("storyScene");
-
-
-    } else {
-
-
-        document.getElementById("codeError")
-        .innerHTML =
-        "Not quite... try again 💭";
-
-
-    }
-
-
-}
-
-
-
-
-
-
-
-// ----------------
-// SCENE CHANGE
-// ----------------
-
-
-function nextScene(id){
+function showScene(id){
 
 
     document
     .querySelectorAll(".scene")
-    .forEach(scene=>{
+    .forEach(scene => {
 
         scene.classList.remove("active");
 
@@ -122,7 +83,6 @@ function nextScene(id){
     .classList.add("active");
 
 
-
 }
 
 
@@ -131,108 +91,36 @@ function nextScene(id){
 
 
 
-// ----------------
-// CAKE
-// ----------------
 
+// ---------------------
+// DATE CODE
+// ---------------------
 
-function blowCandles(){
 
+function checkCode(){
 
-    const cake =
-    document.querySelector(".cake");
 
+    let code =
+    document
+    .getElementById("code")
+    .value
+    .trim();
 
-    cake.style.transform =
-    "scale(.8)";
 
 
-    cake.style.opacity =
-    "0.5";
+    if(code === "09.08"){
 
 
+        showScene("storyScene");
 
-    setTimeout(()=>{
 
+    } else {
 
-        nextScene("letterScene");
 
-
-        startLetter();
-
-
-    },1200);
-
-
-
-}
-
-
-
-
-
-
-// ----------------
-// PERSONAL LETTER
-// ----------------
-
-
-function startLetter(){
-
-
-    if(letterStarted) return;
-
-
-    letterStarted=true;
-
-
-
-    const text = `
-
-Dear you ❤️
-
-
-I made this little surprise because I wanted to give you something special.
-
-Even though we are far away from each other, I hope this little journey can bring you a smile.
-
-
-I wish you happiness, good moments, dreams that come true and many beautiful memories.
-
-
-Thank you for being such an important person in my life.
-
-
-Happy Birthday 🎂
-
-
-With love ❤️
-
-`;
-
-
-
-let i = 0;
-
-
-const area =
-document.getElementById("letterText");
-
-
-
-function typing(){
-
-
-    if(i < text.length){
-
-
-        area.innerHTML += text[i];
-
-
-        i++;
-
-
-        setTimeout(typing,35);
+        document
+        .getElementById("error")
+        .innerHTML =
+        "Try again 💭";
 
 
     }
@@ -241,7 +129,127 @@ function typing(){
 }
 
 
-typing();
+
+
+
+
+
+
+// ---------------------
+// CAKE
+// ---------------------
+
+
+function blowCake(){
+
+
+    let cake =
+    document.querySelector(".cake");
+
+
+    cake.style.transition =
+    "1s";
+
+
+    cake.style.opacity =
+    "0.4";
+
+
+    cake.style.transform =
+    "scale(.85)";
+
+
+
+    setTimeout(()=>{
+
+
+        showScene("letterScene");
+
+
+        startLetter();
+
+
+
+    },1200);
+
+
+}
+
+
+
+
+
+
+
+
+// ---------------------
+// PERSONAL LETTER
+// ---------------------
+
+
+function startLetter(){
+
+
+    if(letterStarted) return;
+
+
+    letterStarted = true;
+
+
+
+    let message = `Dear you ❤️
+
+
+I created this little birthday adventure because I wanted to give you something special.
+
+
+Even though we are far away, I hope this small surprise brings a smile to your face.
+
+
+I wish you happiness, unforgettable moments, dreams that come true and lots of reasons to smile.
+
+
+Thank you for being an important person in my life.
+
+
+Happy Birthday 🎂
+
+
+With love ❤️`;
+
+
+
+    let index = 0;
+
+
+    let area =
+    document.getElementById("letter");
+
+
+
+    function write(){
+
+
+        if(index < message.length){
+
+
+            area.innerHTML += message[index];
+
+
+            index++;
+
+
+            setTimeout(write,35);
+
+
+        }
+
+
+    }
+
+
+
+    write();
 
 
 }
