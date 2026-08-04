@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Birthday Surprise</title>
+<title>Birthday Adventure</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -21,6 +21,7 @@
 <div class="background"></div>
 
 
+
 <!-- HEART -->
 
 <section class="scene active" id="heartScene">
@@ -28,7 +29,7 @@
 <h1>Catch my heart ❤️</h1>
 
 <p>
-I have a little surprise for you...
+A little birthday adventure is waiting for you...
 </p>
 
 
@@ -48,8 +49,9 @@ Catch me if you can!
 
 
 
-<!-- CODE -->
 
+
+<!-- CODE -->
 
 <section class="scene" id="codeScene">
 
@@ -66,11 +68,15 @@ Secret code 🔐
 
 
 <p>
+
 You caught my heart!
+
 <br><br>
 
 Hint:
+
 <br>
+
 This day was born a very special person ❤️
 
 </p>
@@ -100,7 +106,6 @@ Unlock ✨
 
 <!-- BUBU -->
 
-
 <section class="scene" id="bubuScene">
 
 
@@ -111,17 +116,17 @@ Unlock ✨
 
 
 <h1>
-A little adventure begins ✨
+Your adventure begins ✨
 </h1>
 
 
 <p>
-Something special was created just for you.
+A tiny surprise world was created especially for you.
 </p>
 
 
 <button onclick="next('giftScene')">
-Continue
+Start
 </button>
 
 
@@ -138,7 +143,6 @@ Continue
 
 <!-- GIFT -->
 
-
 <section class="scene" id="giftScene">
 
 
@@ -149,12 +153,17 @@ Continue
 
 
 <h1>
-A little surprise 🎁
+You found the first gift 🎁
 </h1>
 
 
+<p>
+But there are still more surprises waiting...
+</p>
+
+
 <button onclick="next('catScene')">
-Next
+Continue
 </button>
 
 
@@ -169,8 +178,8 @@ Next
 
 
 
-<!-- CAT -->
 
+<!-- CAT STORY -->
 
 <section class="scene" id="catScene">
 
@@ -182,13 +191,76 @@ Next
 
 
 <h1>
-A little smile 😸
+A little friend appeared 🐾
 </h1>
 
 
-<button onclick="next('minionScene')">
-Next
+<p>
+
+This little cat brought you a message...
+
+<br><br>
+
+Sometimes the smallest moments become the warmest memories.
+
+<br><br>
+
+Follow the clue and find the next surprise ❤️
+
+</p>
+
+
+<button onclick="next('questScene')">
+Find the clue 🔎
 </button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- QUEST -->
+
+<section class="scene" id="questScene">
+
+
+<div class="card">
+
+
+<h1>
+Mini quest 🗝️
+</h1>
+
+
+<p>
+Choose the magic door...
+</p>
+
+
+<button onclick="wrongDoor()">
+🌙 Dream door
+</button>
+
+
+<button onclick="wrongDoor()">
+⭐ Star door
+</button>
+
+
+<button onclick="next('minionScene')">
+🍌 Funny door
+</button>
+
+
+<p id="questText"></p>
 
 
 </div>
@@ -203,7 +275,6 @@ Next
 
 
 <!-- MINIONS -->
-
 
 <section class="scene" id="minionScene">
 
@@ -225,7 +296,13 @@ STOPAAAH 🛑
 
 
 <p>
+
 The minions came to celebrate your birthday! 🎉
+
+<br><br>
+
+They brought a little chaos and a lot of happiness.
+
 </p>
 
 
@@ -246,7 +323,6 @@ Continue
 
 
 <!-- CAKE -->
-
 
 <section class="scene" id="cakeScene">
 
@@ -285,7 +361,6 @@ Blow 💨
 
 <!-- LETTER -->
 
-
 <section class="scene" id="letterScene">
 
 
@@ -296,7 +371,7 @@ Blow 💨
 
 
 <h1>
-For you ❤️
+A letter for you ❤️
 </h1>
 
 
