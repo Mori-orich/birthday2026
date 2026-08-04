@@ -1,53 +1,69 @@
-let heartAttempts = 0;
+let heartClicks = 0;
+let currentQuestion = 1;
 let letterStarted = false;
+
+
+// ❤️ HEART GAME
 
 const heart = document.getElementById("heart");
 
 
-
-// ❤️ HEART QUEST
-
-heart.addEventListener("mouseenter", function(){
-
-    if(heartAttempts < 2){
-
-        heartAttempts++;
-
-        let x = Math.random() * 450 - 225;
-        let y = Math.random() * 320 - 160;
+function moveHeart(){
 
 
-        heart.style.transform =
-        `translate(${x}px, ${y}px) scale(1.25)`;
+    let x = Math.random() * 500 - 250;
+    let y = Math.random() * 350 - 175;
 
 
-        document.getElementById("heartMessage").innerHTML =
-        "Almost... catch me ❤️";
+    heart.style.transform =
+    `translate(${x}px, ${y}px) scale(1.2)`;
+
+}
+
+
+
+heart.onclick = function(){
+
+
+    heartClicks++;
+
+
+    createHearts();
+
+
+    if(heartClicks < 3){
+
+
+        document.getElementById("heartText").innerHTML =
+
+        `You found me ${heartClicks}/3 ❤️`;
+
+
+        moveHeart();
 
 
     } else {
 
 
-        heart.style.transform =
-        "scale(1.5)";
+        document.getElementById("heartText").innerHTML =
 
-
-        document.getElementById("heartMessage").innerHTML =
         "You caught my heart! 💕";
 
 
-        heart.onclick = function(){
+        setTimeout(()=>{
 
-            createHearts();
 
             next("codeScene");
 
-        };
+
+        },700);
 
 
     }
 
-});
+
+};
+
 
 
 
@@ -66,7 +82,9 @@ function next(id){
     .querySelectorAll(".scene")
     .forEach(scene=>{
 
+
         scene.classList.remove("active");
+
 
     });
 
@@ -74,19 +92,17 @@ function next(id){
 
     setTimeout(()=>{
 
+
         document
         .getElementById(id)
         .classList.add("active");
 
 
-    },300);
-
-
-
-    createHearts();
+    },250);
 
 
 }
+
 
 
 
@@ -102,6 +118,7 @@ function checkCode(){
 
 
     let code =
+
     document
     .getElementById("codeInput")
     .value
@@ -112,7 +129,10 @@ function checkCode(){
     if(code === "0908"){
 
 
-        next("bubuScene");
+        createHearts();
+
+
+        next("quizIntro");
 
 
     } else {
@@ -121,6 +141,7 @@ function checkCode(){
         document
         .getElementById("error")
         .innerHTML =
+
         "Wrong code 💭 Try again";
 
 
@@ -136,17 +157,68 @@ function checkCode(){
 
 
 
-// 🗝️ QUEST WRONG ANSWER
+
+// 🧩 QUIZ
 
 
-function wrongDoor(){
+function startQuiz(){
 
 
-    document
-    .getElementById("questText")
-    .innerHTML =
+    next("question1");
 
-    "Hmm... this door is sleeping 😴 Try another one ❤️";
+
+}
+
+
+
+
+
+function answer(correct){
+
+
+    if(correct){
+
+
+        if(currentQuestion === 1){
+
+
+            currentQuestion++;
+
+
+            next("question2");
+
+
+        }
+
+        else if(currentQuestion === 2){
+
+
+            currentQuestion++;
+
+
+            next("question3");
+
+
+        }
+
+        else {
+
+
+            next("successScene");
+
+
+            createHearts();
+
+
+        }
+
+
+    } else {
+
+
+        alert("Hmm... not this one 😄 Try again!");
+
+    }
 
 
 }
@@ -159,17 +231,16 @@ function wrongDoor(){
 
 
 
-// ❤️ FLOATING HEARTS
+// ❤️ HEART EFFECT
 
 
 function createHearts(){
 
 
-    for(let i=0;i<25;i++){
+    for(let i=0;i<20;i++){
 
 
-        let h =
-        document.createElement("div");
+        let h = document.createElement("div");
 
 
         h.className =
@@ -199,7 +270,9 @@ function createHearts(){
 
         setTimeout(()=>{
 
+
             h.remove();
+
 
         },6000);
 
@@ -237,7 +310,7 @@ function blowCake(){
 
 
     cake.style.opacity =
-    "0.3";
+    ".3";
 
 
 
@@ -252,6 +325,7 @@ function blowCake(){
 
 
         startLetter();
+
 
 
     },1500);
@@ -281,35 +355,35 @@ function startLetter(){
 
 
 
-    let text = `Dear you ❤️
+    let text = `Dear Georgiii ❤️
 
 
 Happy Birthday!
 
 
-I created this little adventure because I wanted to give you something more than just a simple message.
+I created this little adventure because I wanted to make your day more special.
 
 
-I wanted you to smile, play a little game, find surprises and feel how special you are.
+I wanted you to smile, play a little game and feel how important you are.
 
 
-Even if we are far away, I hope you always remember that there are people who care about you and wish you the best.
+Even though we are far away, I hope this small surprise reminds you that someone is thinking about you.
 
 
-May your days be filled with happiness, warm moments, laughter and dreams that come true.
+I wish you happiness, amazing moments, good luck and dreams that come true.
 
 
-Thank you for being an important person in my life.
+Thank you for being you.
 
 
-Have the most wonderful birthday 🎂
+Have the best birthday ever 🎂
 
 
 With love ❤️`;
 
 
 
-    let i=0;
+    let i = 0;
 
 
     let box =
@@ -336,7 +410,6 @@ With love ❤️`;
 
 
     }
-
 
 
     typing();
