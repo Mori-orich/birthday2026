@@ -1,33 +1,33 @@
 let heartAttempts = 0;
 let letterStarted = false;
 
-
 const heart = document.getElementById("heart");
 
 
 
 // ❤️ HEART GAME
 
+heart.addEventListener("mouseenter", function(){
 
-heart.addEventListener("mouseenter", () => {
 
-
-    if (heartAttempts < 2) {
+    if(heartAttempts < 2){
 
 
         heartAttempts++;
 
 
-        let x = Math.random() * 600 - 300;
-        let y = Math.random() * 450 - 225;
+        let x = Math.random() * 450 - 225;
+        let y = Math.random() * 320 - 160;
+
 
 
         heart.style.transform =
-        `translate(${x}px, ${y}px) scale(1.3)`;
+        `translate(${x}px, ${y}px) scale(1.2)`;
 
 
         document.getElementById("heartMessage").innerHTML =
-        "Almost! Catch me ❤️";
+        "Almost... catch me ❤️";
+
 
 
     } else {
@@ -41,7 +41,8 @@ heart.addEventListener("mouseenter", () => {
         "You caught my heart! 💕";
 
 
-        heart.onclick = () => {
+
+        heart.onclick = function(){
 
 
             createHearts();
@@ -64,16 +65,15 @@ heart.addEventListener("mouseenter", () => {
 
 
 
-
 // 🌸 CHANGE SCENE
 
 
-function next(sceneID){
+function next(id){
 
 
     document
     .querySelectorAll(".scene")
-    .forEach(scene => {
+    .forEach(scene=>{
 
 
         scene.classList.remove("active");
@@ -83,15 +83,16 @@ function next(sceneID){
 
 
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
 
         document
-        .getElementById(sceneID)
+        .getElementById(id)
         .classList.add("active");
 
 
-    },200);
+    },300);
+
 
 
 }
@@ -103,7 +104,7 @@ function next(sceneID){
 
 
 
-// 🔐 CODE 0908
+// 🔐 SECRET CODE
 
 
 function checkCode(){
@@ -127,6 +128,7 @@ function checkCode(){
         next("bubuScene");
 
 
+
     } else {
 
 
@@ -134,7 +136,7 @@ function checkCode(){
         .getElementById("error")
         .innerHTML =
 
-        "Wrong code. Try again 💭";
+        "Try again 💭";
 
 
     }
@@ -149,57 +151,56 @@ function checkCode(){
 
 
 
-
 // ❤️ HEART EFFECT
 
 
 function createHearts(){
 
 
-    for(let i = 0; i < 35; i++){
+    for(let i=0;i<35;i++){
 
 
-        let heart = document.createElement("div");
+        let h =
+        document.createElement("div");
 
 
-        heart.className =
+
+        h.className =
         "floating-heart";
 
 
-        heart.innerHTML =
+
+        h.innerHTML =
         "❤️";
 
 
 
-        heart.style.left =
-
-        Math.random()*100 + "vw";
-
-
-
-        heart.style.animationDuration =
-
-        (2 + Math.random()*3) + "s";
+        h.style.left =
+        Math.random()*100+"vw";
 
 
 
-        heart.style.fontSize =
-
-        (20 + Math.random()*30) + "px";
-
+        h.style.fontSize =
+        (20+Math.random()*35)+"px";
 
 
-        document.body.appendChild(heart);
+
+        h.style.animationDuration =
+        (3+Math.random()*3)+"s";
+
+
+
+        document.body.appendChild(h);
 
 
 
         setTimeout(()=>{
 
 
-            heart.remove();
+            h.remove();
 
 
-        },5000);
+        },6000);
 
 
     }
@@ -222,20 +223,20 @@ function blowCake(){
 
 
     let cake =
-
     document.querySelector(".cake");
 
 
 
+    cake.style.transition =
+    "1.5s";
+
+
     cake.style.transform =
-
-    "scale(.7) rotate(10deg)";
-
+    "scale(.7) rotate(8deg)";
 
 
     cake.style.opacity =
-
-    "0.3";
+    ".4";
 
 
 
@@ -252,11 +253,12 @@ function blowCake(){
         startLetter();
 
 
-    },1200);
+
+    },1500);
+
 
 
 }
-
 
 
 
@@ -274,20 +276,23 @@ function startLetter(){
     if(letterStarted) return;
 
 
-    letterStarted = true;
+    letterStarted=true;
 
 
 
     let text = `Dear you ❤️
 
 
-I created this little birthday surprise because I wanted to make something special for you.
+The little adventure is over, but the most important part is here.
 
 
-Even though we are far away, I hope this little adventure makes you smile.
+I created this birthday surprise because I wanted to give you something special and personal.
 
 
-I wish you happiness, beautiful memories, dreams that come true and many reasons to be happy.
+Even though we are far away, I hope this little gift brings you a smile.
+
+
+I wish you happiness, unforgettable moments, dreams that come true and many beautiful days ahead.
 
 
 Thank you for being such an important person in my life.
@@ -300,28 +305,27 @@ With love ❤️`;
 
 
 
-    let index = 0;
+    let i=0;
 
 
-    let area =
-
+    let box =
     document.getElementById("letterText");
 
 
 
-    function typing(){
+    function write(){
 
 
-        if(index < text.length){
+        if(i<text.length){
 
 
-            area.innerHTML += text[index];
+            box.innerHTML += text[i];
 
 
-            index++;
+            i++;
 
 
-            setTimeout(typing,35);
+            setTimeout(write,40);
 
 
         }
@@ -330,7 +334,8 @@ With love ❤️`;
     }
 
 
-    typing();
+
+    write();
 
 
 }
