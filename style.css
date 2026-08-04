@@ -4,39 +4,65 @@
 
 
 body {
-    margin: 0;
-    min-height: 100vh;
-    overflow: hidden;
-    font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(135deg, #ffe1ec, #fff5d6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    margin:0;
+
+    min-height:100vh;
+
+    overflow:hidden;
+
+    font-family:'Poppins', sans-serif;
+
+    font-weight:600;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+    linear-gradient(135deg,#ffdbe8,#fff1c9);
+
 }
 
 
-.stars {
-    position: fixed;
-    inset: 0;
+
+
+.background {
+
+    position:fixed;
+
+    inset:0;
+
     background-image:
     radial-gradient(circle, white 2px, transparent 3px);
-    background-size: 80px 80px;
-    opacity: .5;
-    animation: starsMove 15s linear infinite;
+
+    background-size:70px 70px;
+
+    opacity:.5;
+
+    animation:
+    moveStars 15s linear infinite;
+
 }
 
 
-@keyframes starsMove {
+
+@keyframes moveStars {
 
     from {
-        transform: translateY(0);
+        transform:translateY(0);
     }
 
     to {
-        transform: translateY(80px);
+        transform:translateY(70px);
     }
 
 }
+
+
+
 
 
 
@@ -46,31 +72,30 @@ body {
 
 .scene {
 
-    position: absolute;
+    position:absolute;
 
-    width: 100%;
-    max-width: 500px;
+    width:100%;
 
-    padding: 25px;
+    max-width:520px;
 
-    text-align: center;
+    padding:25px;
+
+    text-align:center;
 
 
-    opacity: 0;
+    opacity:0;
+
+    pointer-events:none;
+
 
     transform:
-    scale(.85)
-    translateY(40px);
-
-
-    pointer-events: none;
+    scale(.8)
+    translateY(50px);
 
 
     transition:
 
-    opacity .8s ease,
-
-    transform .8s cubic-bezier(.2,.8,.2,1);
+    .8s ease;
 
 }
 
@@ -78,16 +103,20 @@ body {
 
 .scene.active {
 
-    opacity: 1;
+
+    opacity:1;
+
+    pointer-events:auto;
+
 
     transform:
     scale(1)
     translateY(0);
 
 
-    pointer-events: auto;
-
 }
+
+
 
 
 
@@ -99,22 +128,26 @@ body {
 
 h1 {
 
-    font-family: 'Dancing Script', cursive;
+    font-size:44px;
 
-    font-size: 48px;
+    font-weight:800;
 
-    color:#d85c87;
+    color:#d65382;
 
     margin-bottom:15px;
 
 }
 
 
+
 h2 {
 
-    color:#d85c87;
+    color:#d65382;
+
+    font-weight:800;
 
 }
+
 
 
 p {
@@ -131,29 +164,36 @@ p {
 
 
 
-/* CARDS */
+
+
+/* CARD */
 
 
 .card {
 
+
     background:
-    rgba(255,255,255,.85);
 
-
-    backdrop-filter:
-    blur(15px);
-
-
-    border-radius:35px;
+    rgba(255,255,255,.88);
 
 
     padding:35px 25px;
 
 
+    border-radius:35px;
+
+
     box-shadow:
+
     0 20px 60px rgba(0,0,0,.15);
 
+
+    backdrop-filter:blur(10px);
+
+
 }
+
+
 
 
 
@@ -164,16 +204,23 @@ p {
 
 #heart {
 
-    font-size:110px;
+
+    font-size:120px;
+
 
     cursor:pointer;
 
+
     display:inline-block;
 
-    transition:.4s;
+
+    transition:.5s;
 
 
-    animation:pulse 1.5s infinite;
+    animation:
+
+    pulse 1.3s infinite;
+
 
 }
 
@@ -181,13 +228,15 @@ p {
 
 @keyframes pulse {
 
+
     50% {
 
-        transform:scale(1.15);
+        transform:scale(1.2);
 
     }
 
 }
+
 
 
 
@@ -199,17 +248,20 @@ p {
 
 button {
 
+
     margin-top:20px;
 
-    padding:14px 35px;
+
+    padding:15px 35px;
 
 
-    border:none;
+    border:0;
+
 
     border-radius:30px;
 
 
-    background:#e9789b;
+    background:#df638d;
 
 
     color:white;
@@ -218,10 +270,14 @@ button {
     font-size:18px;
 
 
+    font-weight:800;
+
+
     cursor:pointer;
 
 
     transition:.3s;
+
 
 }
 
@@ -229,9 +285,11 @@ button {
 
 button:hover {
 
-    transform:scale(1.08);
+
+    transform:scale(1.1);
 
 }
+
 
 
 
@@ -243,26 +301,35 @@ button:hover {
 
 input {
 
+
     width:80%;
+
 
     padding:15px;
 
 
-    border-radius:25px;
+    border-radius:30px;
 
 
-    border:2px solid #ffc2d7;
+    border:
+
+    2px solid #ffc2d7;
+
+
+    font-size:20px;
 
 
     text-align:center;
 
 
-    font-size:18px;
+    font-weight:700;
 
 
     outline:none;
 
+
 }
+
 
 
 
@@ -272,15 +339,20 @@ input {
 /* IMAGES */
 
 
-.image {
+.picture {
 
-    width:230px;
 
-    max-height:230px;
+    width:240px;
+
+
+    max-height:250px;
+
 
     object-fit:contain;
 
+
     border-radius:25px;
+
 
 }
 
@@ -288,11 +360,15 @@ input {
 
 .cake {
 
-    width:260px;
+
+    width:280px;
+
 
     border-radius:20px;
 
+
 }
+
 
 
 
@@ -304,28 +380,30 @@ input {
 
 .letter {
 
+
     background:
-    linear-gradient(#fffdf7,#fff2d8);
+
+    linear-gradient(#fffdf7,#fff0d5);
 
 
     padding:35px;
 
 
-    border-radius:15px;
+    border-radius:20px;
 
 
     min-height:500px;
 
 
     box-shadow:
-    0 20px 50px rgba(0,0,0,.2);
 
-
-    text-align:left;
+    0 20px 60px rgba(0,0,0,.2);
 
 
     animation:
-    openPaper 1s;
+
+    openLetter 1s;
+
 
 }
 
@@ -339,20 +417,20 @@ input {
 
 
 
-#letter {
+#letterText {
 
-
-    font-family:
-    'Dancing Script',
-    cursive;
-
-
-    font-size:28px;
-
-
-    color:#604550;
 
     white-space:pre-line;
+
+
+    font-size:22px;
+
+
+    line-height:1.7;
+
+
+    color:#59434d;
+
 
 }
 
@@ -360,7 +438,9 @@ input {
 
 
 
-@keyframes openPaper {
+
+
+@keyframes openLetter {
 
 
     from {
@@ -385,15 +465,83 @@ input {
 
 
 
-/* MINIONS EFFECT */
+
+
+/* FLOATING HEARTS */
+
+
+.floating-heart {
+
+
+    position:fixed;
+
+
+    bottom:-30px;
+
+
+    font-size:35px;
+
+
+    animation:
+
+    fly 5s linear forwards;
+
+
+    z-index:10;
+
+
+}
+
+
+
+@keyframes fly {
+
+
+    from {
+
+        transform:
+        translateY(0)
+        scale(.5);
+
+
+        opacity:1;
+
+    }
+
+
+    to {
+
+
+        transform:
+        translateY(-100vh)
+        scale(1.5);
+
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+
+
+
+
+/* MINIONS */
 
 
 #minionScene h1 {
 
+
     animation:
-    shake .7s infinite;
+
+    shake .5s infinite;
+
 
 }
+
 
 
 @keyframes shake {
