@@ -600,11 +600,7 @@ function typing(){
 
     } else {
 
-        setTimeout(() => {
-
-            next("finalScene");
-
-        },1500);
+        document.getElementById("letterEndButton").style.display = "inline-block";
 
     }
 
