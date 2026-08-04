@@ -1,178 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Bubu & Dudu Surprise 💌</title>
+<title>A Little Birthday Surprise ❤️</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
 </head>
+
 
 <body>
 
 
-<div class="stars"></div>
+<!-- HEART GAME -->
 
+<section class="scene active" id="heartScene">
 
-<!-- PASSWORD SCREEN -->
+    <h1>Catch my heart ❤️</h1>
 
-<div class="screen active" id="passwordScreen">
+    <p>
+    I have a little surprise for you...
+    </p>
 
-    <div class="box">
-
-        <div class="heart">❤️</div>
-
-        <h1>Bubu & Dudu</h1>
-
-        <p>
-        A little birthday surprise is waiting for you...
-        </p>
-
-        <input 
-        type="password" 
-        id="password"
-        placeholder="Enter the secret code">
-
-        <button onclick="checkPassword()">
-        Open 💌
-        </button>
-
-        <p id="error"></p>
-
+    <div id="heart">
+        ❤️
     </div>
 
-</div>
+    <p id="heartText">
+    Try to catch it!
+    </p>
 
-
-
-<!-- ENVELOPE SCREEN -->
-
-<div class="screen" id="envelopeScreen">
-
-    <div class="envelope" onclick="openLetter()">
-
-        💌
-
-    </div>
-
-    <h2>
-    Tap the envelope
-    </h2>
-
-</div>
+</section>
 
 
 
 
-<!-- LETTER SCREEN -->
 
-<div class="screen" id="letterScreen">
+<!-- DATE CODE -->
 
 
-<div class="letter">
+<section class="scene" id="codeScene">
+
+
+<div class="card">
 
 <h1>
-Happy Birthday 🎂
+A secret code 🔐
 </h1>
 
 
-<p id="text">
-
+<p>
+You caught my heart!
+<br>
+Now unlock the next surprise.
 </p>
 
 
-<button onclick="nextQuest()">
-Continue ✨
+<input 
+id="dateInput"
+placeholder="DD.MM">
+
+
+<button onclick="checkDate()">
+Unlock ✨
+</button>
+
+
+<p id="codeError"></p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- STORY -->
+
+
+<section class="scene" id="storyScene">
+
+
+<div class="card">
+
+<img src="images/bubu-dudu.png" class="picture">
+
+
+<h1>
+A little journey begins 🌙
+</h1>
+
+
+<p>
+A special surprise is waiting for you...
+</p>
+
+
+<button onclick="nextScene('cakeScene')">
+Continue 🎁
 </button>
 
 
 </div>
 
 
-</div>
+</section>
 
 
 
 
 
-<!-- QUEST SCREEN -->
-
-<div class="screen" id="questScreen">
 
 
-<div class="quest">
+<!-- CAKE -->
+
+
+<section class="scene" id="cakeScene">
+
+
+<div class="card">
 
 
 <h1>
-A little quest ⭐
+Make a wish ✨
 </h1>
 
 
+<img src="images/cake.gif" class="cake">
+
+
 <p>
-Find the hidden stars to unlock the surprise!
+Blow the candles 🕯
 </p>
 
 
-<div class="game">
-
-<span onclick="findStar(this)">⭐</span>
-<span onclick="findStar(this)">⭐</span>
-<span onclick="findStar(this)">⭐</span>
-
-</div>
-
-
-<p id="counter">
-Stars found: 0/3
-</p>
+<button onclick="blowCandles()">
+Blow 💨
+</button>
 
 
 </div>
 
 
-</div>
+</section>
 
 
 
 
 
 
-<!-- FINAL SCREEN -->
-
-<div class="screen" id="finalScreen">
 
 
-<div class="final">
+<!-- LETTER -->
+
+
+<section class="scene" id="letterScene">
+
+
+<div class="letter">
+
 
 <h1>
-You did it! 🎁
+For you ❤️
 </h1>
 
 
-<p>
-May your life be filled with happiness,
-love and beautiful moments.
+<p id="letterText">
+
 </p>
 
 
-<h2>
-With love ❤️
-</h2>
-
-
 </div>
 
 
-</div>
+</section>
+
+
 
 
 
 
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
