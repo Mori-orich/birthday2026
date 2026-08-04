@@ -1,14 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday</title>
+
+<title>Happy Birthday ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-<script src="script.js"></script>
+<!-- Floating Hearts -->
 
-</body>
-</html>
+<div id="floating-hearts"></div>
+
+<!-- Balloons -->
+
+<div id="balloons"></div>
+
+<!-- Confetti -->
+
+<div id="confetti"></div>
+
+<!-- Music -->
+
+<audio id="birthdayMusic" loop>
+<source src="assets/happy-birthday.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicButton">
+
+🎵
+
+<span>Music</span>
+
+</button>
+
+<!-- ========================= -->
+
+<!-- HEART SCREEN -->
+
+<!-- ========================= -->
+
+<section id="heart-screen" class="screen active">
+
+<div class="glass">
+
+<h1>
+
+I hid my little heart...
+
+</h1>
+
+<p>
+
+Catch it if you can ❤️
+
+</p>
+
+<div id="heart">
+
+❤️
+
+</div>
+
+<p id="heartHint">
+
+Try to click it...
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+
+<!-- FOUND HEART -->
+
+<!-- ========================= -->
+
+<section id="found-screen" class="screen">
+
+<div class="glass">
+
+<h1>
+
+You found me ❤️
+
+</h1>
+
+<p>
+
+Good job...
+
+I knew you would.
+
+</p>
+
+<button id="continueButton">
+
+Continue →
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+
+<!-- ENVELOPE -->
+
+<!-- ========================= -->
+
+<section id="envelope-screen" class="screen">
+
+<div class="envelope-wrapper">
+
+<p class="openText">
+
+Open me...
+
+</p>
+
+<div id="envelope">
+
+<div class="letter">
+
+💌
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+
+<!-- PASSWORD -->
+
+<!-- ========================= -->
+
+<section id="password-screen" class="screen">
+
+<div class="glass">
+
+<h2>
+
+One tiny secret...
+
+</h2>
+
+<p>
+
+Enter the special date
+
+</p>
+
+<input
+
+id="passwordInput"
+
+placeholder="dd/mm"
+
+maxlength="5">
+
+<button id="passwordButton">
+
+Unlock ❤️
+
+</button>
+
+<p id="passwordError"></p>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+
+<!-- STORY -->
+
+<!-- дальше будет -->
