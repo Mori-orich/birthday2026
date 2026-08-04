@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Birthday Adventure</title>
+<title>George Birthday Adventure</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -22,14 +22,21 @@
 
 
 
-<!-- HEART -->
+<!-- HEART GAME -->
 
 <section class="scene active" id="heartScene">
 
-<h1>Catch my heart ❤️</h1>
+
+<div class="card">
+
+
+<h1>
+Catch my heart ❤️
+</h1>
+
 
 <p>
-A little birthday adventure is waiting for you...
+A little surprise is waiting for you...
 </p>
 
 
@@ -38,9 +45,12 @@ A little birthday adventure is waiting for you...
 </div>
 
 
-<p id="heartMessage">
-Catch me if you can!
+<p id="heartText">
+Find me 3 times!
 </p>
+
+
+</div>
 
 
 </section>
@@ -51,7 +61,7 @@ Catch me if you can!
 
 
 
-<!-- CODE -->
+<!-- SECRET CODE -->
 
 <section class="scene" id="codeScene">
 
@@ -69,7 +79,7 @@ Secret code 🔐
 
 <p>
 
-You caught my heart!
+You found my heart!
 
 <br><br>
 
@@ -82,7 +92,7 @@ This day was born a very special person ❤️
 </p>
 
 
-<input id="codeInput" placeholder="DDMM">
+<input id="codeInput" placeholder="0908">
 
 
 <button onclick="checkCode()">
@@ -104,9 +114,10 @@ Unlock ✨
 
 
 
-<!-- BUBU -->
+<!-- QUIZ INTRO -->
 
-<section class="scene" id="bubuScene">
+
+<section class="scene" id="quizIntro">
 
 
 <div class="card">
@@ -116,17 +127,23 @@ Unlock ✨
 
 
 <h1>
-Your adventure begins ✨
+Wait... 🤔
 </h1>
 
 
 <p>
-A tiny surprise world was created especially for you.
+
+Now I need to make sure that you are really George.
+
+<br><br>
+
+Complete this little test to continue ❤️
+
 </p>
 
 
-<button onclick="next('giftScene')">
-Start
+<button onclick="startQuiz()">
+Start the test
 </button>
 
 
@@ -141,9 +158,149 @@ Start
 
 
 
-<!-- GIFT -->
 
-<section class="scene" id="giftScene">
+<!-- QUESTION 1 -->
+
+
+<section class="scene" id="question1">
+
+
+<div class="card">
+
+
+<h1>
+Question 1 🎮
+</h1>
+
+
+<p>
+What is your favorite game?
+</p>
+
+
+<button onclick="answer(false)">
+A) Dota 2
+</button>
+
+
+<button onclick="answer(false)">
+B) Dead by Daylight
+</button>
+
+
+<button onclick="answer(true)">
+C) Escape from Tarkov
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- QUESTION 2 -->
+
+
+<section class="scene" id="question2">
+
+
+<div class="card">
+
+
+<h1>
+Question 2 🐾
+</h1>
+
+
+<p>
+What is the name of your favorite pet?
+</p>
+
+
+<button onclick="answer(true)">
+A) Liza
+</button>
+
+
+<button onclick="answer(false)">
+B) Caroline
+</button>
+
+
+<button onclick="answer(false)">
+C) Maria
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- QUESTION 3 -->
+
+
+<section class="scene" id="question3">
+
+
+<div class="card">
+
+
+<h1>
+Question 3 💻
+</h1>
+
+
+<p>
+What is your favorite activity besides computer games?
+</p>
+
+
+<button onclick="answer(false)">
+A) Cleaning
+</button>
+
+
+<button onclick="answer(false)">
+B) Studying
+</button>
+
+
+<button onclick="answer(true)">
+C) Ragebaiting Maria
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- QUIZ SUCCESS -->
+
+
+<section class="scene" id="successScene">
 
 
 <div class="card">
@@ -153,12 +310,17 @@ Start
 
 
 <h1>
-You found the first gift 🎁
+Perfect! 🎉
 </h1>
 
 
 <p>
-But there are still more surprises waiting...
+You are really George ❤️
+
+<br><br>
+
+The adventure continues...
+
 </p>
 
 
@@ -179,7 +341,8 @@ Continue
 
 
 
-<!-- CAT STORY -->
+<!-- CAT -->
+
 
 <section class="scene" id="catScene">
 
@@ -191,82 +354,31 @@ Continue
 
 
 <h1>
-A little friend appeared 🐾
+A little friend found you 🐾
 </h1>
 
 
 <p>
 
-This little cat brought you a message...
+This little cat brought a warm message...
 
 <br><br>
 
-Sometimes the smallest moments become the warmest memories.
-
-<br><br>
-
-Follow the clue and find the next surprise ❤️
+The smallest moments can become the sweetest memories.
 
 </p>
-
-
-<button onclick="next('questScene')">
-Find the clue 🔎
-</button>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- QUEST -->
-
-<section class="scene" id="questScene">
-
-
-<div class="card">
-
-
-<h1>
-Mini quest 🗝️
-</h1>
-
-
-<p>
-Choose the magic door...
-</p>
-
-
-<button onclick="wrongDoor()">
-🌙 Dream door
-</button>
-
-
-<button onclick="wrongDoor()">
-⭐ Star door
-</button>
 
 
 <button onclick="next('minionScene')">
-🍌 Funny door
+Continue ❤️
 </button>
-
-
-<p id="questText"></p>
 
 
 </div>
 
 
 </section>
+
 
 
 
@@ -275,6 +387,7 @@ Choose the magic door...
 
 
 <!-- MINIONS -->
+
 
 <section class="scene" id="minionScene">
 
@@ -296,13 +409,7 @@ STOPAAAH 🛑
 
 
 <p>
-
 The minions came to celebrate your birthday! 🎉
-
-<br><br>
-
-They brought a little chaos and a lot of happiness.
-
 </p>
 
 
@@ -322,7 +429,9 @@ Continue
 
 
 
+
 <!-- CAKE -->
+
 
 <section class="scene" id="cakeScene">
 
@@ -359,7 +468,9 @@ Blow 💨
 
 
 
+
 <!-- LETTER -->
+
 
 <section class="scene" id="letterScene">
 
@@ -382,6 +493,8 @@ A letter for you ❤️
 
 
 </section>
+
+
 
 
 
