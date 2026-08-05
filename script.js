@@ -609,3 +609,16 @@ function typing(){
 typing();
 
 }
+
+function openEnvelope(){
+
+    document.querySelector(".envelope")
+    .classList.add("open");
+
+    setTimeout(()=>{
+
+        next("welcomeSurprise");
+
+    },1200);
+
+}
