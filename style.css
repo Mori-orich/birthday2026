@@ -902,3 +902,17 @@ transform:translateY(300px) rotate(360deg);
 .seal:hover {
     transform: translate(-50%, -50%) scale(1.12);
 }
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+    transform-origin: top;
+}
+
+.envelope .flap {
+    transition: 0.8s;
+}
+
+.envelope.open {
+    transform: scale(1.05);
+    transition: 0.8s;
+}
